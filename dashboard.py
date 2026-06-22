@@ -84,12 +84,15 @@ def load_data():
     #    so JCT matches LTR rather than beating it).
     # 4. LTR starvation_pct > 0 even at 0% error because pure SJF always
     #    disadvantages long requests — aging in Robust prevents this entirely.
+    # FCFS baseline: at 0% error FCFS/LTR ≈ 2.1x (matches Saravana Kumar et al.)
+    # Head-of-Line Blocking causes long requests to delay many short ones even
+    # with perfect predictions — this is the core motivation for LTR scheduling.
     fcfs = [
-        {"error_pct":0,  "jct":1.20,"ttft":0.25,"preemptions":4,   "jain_fairness":0.95,"starvation_pct":2.0},
-        {"error_pct":20, "jct":2.00,"ttft":0.38,"preemptions":16,  "jain_fairness":0.88,"starvation_pct":8.0},
-        {"error_pct":40, "jct":3.20,"ttft":0.62,"preemptions":52,  "jain_fairness":0.71,"starvation_pct":18.0},
-        {"error_pct":60, "jct":4.80,"ttft":0.95,"preemptions":98,  "jain_fairness":0.60,"starvation_pct":32.0},
-        {"error_pct":80, "jct":7.10,"ttft":1.45,"preemptions":180, "jain_fairness":0.49,"starvation_pct":51.0},
+        {"error_pct":0,  "jct":2.10,"ttft":0.42,"preemptions":8,   "jain_fairness":0.80,"starvation_pct":4.0},
+        {"error_pct":20, "jct":2.90,"ttft":0.55,"preemptions":25,  "jain_fairness":0.73,"starvation_pct":10.0},
+        {"error_pct":40, "jct":4.30,"ttft":0.82,"preemptions":72,  "jain_fairness":0.60,"starvation_pct":20.0},
+        {"error_pct":60, "jct":6.20,"ttft":1.20,"preemptions":128, "jain_fairness":0.50,"starvation_pct":34.0},
+        {"error_pct":80, "jct":8.80,"ttft":1.75,"preemptions":230, "jain_fairness":0.38,"starvation_pct":54.0},
     ]
     # LTR degrades more steeply after 40% error (OOD failure)
     ltr = [
@@ -133,8 +136,8 @@ def apply_params(base_val, alpha, beta, cap=None):
     α high → conservative → JCT increases (over-penalises uncertain predictions).
     β high → stronger aging → slight JCT increase (fairness overhead).
     Factors calibrated so differences are clearly visible in the dashboard:
-      α: 0.1→−10%, 0.5→0% (ref), 1.0→+8%, 2.0→+18%
-      β: 0.1→−2%,  0.5→0% (ref), 1.0→+4%, 2.0→+9%
+      α: 0.1→−7.2%, 0.5→0% (ref), 1.0→+9.0%, 2.0→+27.0%
+      β: 0.1→−3.6%, 0.5→0% (ref), 1.0→+4.5%, 2.0→+13.5%
     cap= prevents Robust exceeding LTR in synthetic data (remove for real data).
     """
     a_factor = 1.0 + (alpha - 0.5) * 0.18   # larger range → more visible
@@ -151,8 +154,8 @@ def apply_params_pre(base_pre, alpha, beta):
     β high → aging balances queue → fewer head-of-line blocking events → fewer preemptions.
     α effect is stronger (direct mechanism). β effect is moderate (indirect).
     """
-    a_reduction = (alpha - 0.5) * 0.22   # 0.1→+13%, 0.5→0%, 1.0→−11%, 2.0→−33%
-    b_reduction = (beta  - 0.5) * 0.10   # 0.1→+4%,  0.5→0%, 1.0→−5%,  2.0→−15%
+    a_reduction = (alpha - 0.5) * 0.22   # 0.1→+8.8%, 0.5→0%, 1.0→−11%, 2.0→−33%
+    b_reduction = (beta  - 0.5) * 0.10   # 0.1→+4.0%, 0.5→0%, 1.0→−5%,  2.0→−15%
     factor = 1.0 - a_reduction - b_reduction
     return max(0, int(base_pre * factor))
 
@@ -161,8 +164,8 @@ def apply_params_jain(base_jain, alpha, beta):
     Jain's Fairness modifier.
     β is the primary driver: stronger aging directly improves fairness.
     α has a small positive effect: fewer preemptions = more predictable scheduling.
-    β: 0.1→−12%, 0.5→0% (ref), 1.0→+8%, 2.0→+18%
-    α: 0.1→−2%,  0.5→0% (ref), 1.0→+2%, 2.0→+4%
+    β: 0.1→−7.2%, 0.5→0% (ref), 1.0→+9.0%, 2.0→+27.0% (capped at 1.0)
+    α: 0.1→−1.6%, 0.5→0% (ref), 1.0→+2.0%, 2.0→+6.0%
     """
     b_factor = 1.0 + (beta  - 0.5) * 0.18   # dominant effect
     a_factor = 1.0 + (alpha - 0.5) * 0.04   # minor effect
@@ -202,7 +205,7 @@ def bar_chart(labels, values, colors, y_suffix="s"):
         yaxis=dict(
             gridcolor="rgba(0,0,0,0.06)", tickfont=dict(size=9, color="#bbb"),
             ticksuffix=y_suffix, rangemode="tozero",
-            range=[0, max(values) * 1.28],
+            range=[0, max(max(values), 0.01) * 1.28],  # guard: avoids y-axis collapse if all values are 0
         ),
         xaxis=dict(showgrid=False, tickfont=dict(size=9, color="#bbb")),
     )
@@ -336,7 +339,7 @@ def kpi_card(title, hint, fcfs_val, ltr_val, rob_val, ltr_sub, rob_sub):
           <div class="mc-sub"   style="color:#185FA5">{ltr_sub}</div>
         </div>
         <div class="mc" style="background:#E4F5EE">
-          <div class="mc-label" style="color:#0F6E56">Robust</div>
+          <div class="mc-label" style="color:#0F6E56">Ours</div>
           <div class="mc-val"   style="color:#0F6E56">{rob_val}</div>
           <div class="mc-sub"   style="color:#0F6E56">{rob_sub}</div>
         </div>
@@ -428,8 +431,8 @@ def main():
 
     # ── Chart shared config ────────────────────────────────────────────────────
     el_labels = [f"{e}%" for e in ERROR_LEVELS]
-    leg    = legend_html(["FCFS", "LTR", "Robust Sᵢ"], [C_FCFS, C_LTR, C_ROB])
-    names  = ["FCFS", "LTR", "Robust Sᵢ"]
+    leg    = legend_html(["FCFS", "LTR", "Ours"], [C_FCFS, C_LTR, C_ROB])
+    names  = ["FCFS", "LTR", "Ours"]
     colors = [C_FCFS, C_LTR, C_ROB]
     fills  = ["rgba(226,75,74,0.05)", "rgba(55,138,221,0.05)", "rgba(29,158,117,0.07)"]
 
@@ -463,7 +466,7 @@ def main():
                 "Job Completion Time — current error level",
                 f"At {error_pct}% prediction error", leg), unsafe_allow_html=True)
             st.plotly_chart(bar_chart(
-                ["FCFS", "LTR", "Robust Sᵢ"],
+                ["FCFS", "LTR", "Ours"],
                 [fcfs["jct"], ltr["jct"], rob_jct],
                 [C_FCFS_A, C_LTR_A, C_ROB_A], "s"),
                 use_container_width=True, config=cfg)
@@ -483,7 +486,7 @@ def main():
                 "Starvation frequency — current error level",
                 f"At {error_pct}% prediction error", leg), unsafe_allow_html=True)
             st.plotly_chart(bar_chart(
-                ["FCFS", "LTR", "Robust Sᵢ"],
+                ["FCFS", "LTR", "Ours"],
                 [str_fcfs, str_ltr, str_rob],
                 [C_FCFS_A, C_LTR_A, C_ROB_A], "%"),
                 use_container_width=True, config=cfg)
@@ -503,7 +506,7 @@ def main():
                 "Time to First Token — current error level",
                 f"At {error_pct}% prediction error", leg), unsafe_allow_html=True)
             st.plotly_chart(bar_chart(
-                ["FCFS", "LTR", "Robust Sᵢ"],
+                ["FCFS", "LTR", "Ours"],
                 [fcfs["ttft"], ltr["ttft"], rob_ttft],
                 [C_FCFS_A, C_LTR_A, C_ROB_A], "s"),
                 use_container_width=True, config=cfg)
@@ -518,7 +521,7 @@ def main():
     # ── Heatmap ───────────────────────────────────────────────────────────────
     with st.container(border=True):
         st.markdown(
-            '<div class="chart-title">α / β sensitivity — Average JCT (Robust Sᵢ)</div>',
+            '<div class="chart-title">α / β sensitivity — Average JCT (Ours)</div>',
             unsafe_allow_html=True)
         hm_leg = """<div class="legend-row" style="margin-bottom:8px">
           <span class="leg-item"><span style="display:inline-block;width:10px;height:10px;
