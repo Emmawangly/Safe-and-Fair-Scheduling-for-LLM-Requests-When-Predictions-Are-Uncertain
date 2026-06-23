@@ -2,8 +2,8 @@ from typing import Optional, List
 from shared_structures import RequestPacket
 
 
-def fcfs_scheduler(queue: List[RequestPacket]) -> Optional[int]:
-    
+def fcfs_scheduler(queue: List[RequestPacket], **kwargs) -> Optional[int]:
+        
     if not queue:
         return None
 

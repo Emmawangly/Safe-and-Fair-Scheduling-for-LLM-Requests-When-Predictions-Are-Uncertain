@@ -1,6 +1,8 @@
 from shared_structures import RequestPacket
 
-def ltr_scheduler(queue):
+
+def ltr_scheduler(queue, **kwargs):
+
     if not queue:
         return None
         
