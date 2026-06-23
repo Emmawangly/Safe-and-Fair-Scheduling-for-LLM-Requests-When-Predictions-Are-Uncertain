@@ -126,3 +126,58 @@ The tests verify:
 The current workload generator uses synthetic request lengths and configurable prediction noise.
 
 The next planned update is to replace the temporary synthetic block-length distribution with a distribution derived from LMSYS-Chat-1M data, while keeping the same shared request interface.
+## LMSYS-Style Profile Pipeline
+
+The repository includes a reusable pipeline for converting LMSYS-style conversation data into workload profiles.
+
+Pipeline:
+
+```text
+JSONL conversation records
+→ estimated token lengths
+→ KV-cache block profile
+→ profile-based workload generation
+```
+
+### Build a Block Profile
+
+The extractor expects a local JSONL file with conversation records in this format:
+
+```json
+{
+  "conversation": [
+    {"role": "user", "content": "Example user request"},
+    {"role": "assistant", "content": "Example assistant response"}
+  ]
+}
+```
+
+Run:
+
+```bash
+python src/lmsys_extract_profile.py
+```
+
+This creates:
+
+```text
+data/lmsys_block_profile.json
+```
+
+### Generate Profile-Based Workloads
+
+After a profile is available, run:
+
+```bash
+python src/generate_profile_workloads.py
+```
+
+The script generates workloads for 0%, 20%, 40%, 60%, and 80% prediction error and verifies that all error levels use identical `actual_blocks` values.
+
+### Important Note
+
+The current `lmsys_sample.jsonl` file is a small local example used only to validate the pipeline.
+
+It is not the real LMSYS-Chat-1M dataset.
+
+The current token estimator uses approximately four characters per token. Before final experiments, this should be replaced or validated with the tokenizer selected by the project team.
