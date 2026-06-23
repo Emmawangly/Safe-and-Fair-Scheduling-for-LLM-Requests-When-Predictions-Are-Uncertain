@@ -10,7 +10,7 @@
     2,
     4
   ],
-  "source": "LMSYS-style JSONL",
-  "token_count_method": "character_estimate_4_chars_per_token",
-  "input_file": "data/lmsys_sample.jsonl"
+  "source": "LMSYS-style dataset",
+  "input_file": "data/lmsys_sample.jsonl",
+  "token_count_method": "character_estimate_4_chars_per_token"
 }

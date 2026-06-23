@@ -1,6 +1,7 @@
 import json
 import sys
 from pathlib import Path
+import pandas as pd
 
 import pytest
 
@@ -12,7 +13,9 @@ sys.path.insert(0, str(SRC_PATH))
 from lmsys_extract_profile import (
     estimate_tokens,
     extract_message_texts,
+    read_dataset_token_lengths,
     read_jsonl_token_lengths,
+    read_parquet_token_lengths,
     record_to_total_tokens,
 )
 
@@ -106,3 +109,40 @@ def test_read_jsonl_token_lengths_skips_invalid_json_lines(tmp_path):
 def test_read_jsonl_token_lengths_rejects_missing_file():
     with pytest.raises(FileNotFoundError):
         read_jsonl_token_lengths("data/file_that_does_not_exist.jsonl")
+def test_read_parquet_token_lengths_reads_conversation_column(tmp_path):
+    input_path = tmp_path / "sample.parquet"
+
+    dataframe = pd.DataFrame(
+        {
+            "conversation": [
+                '[{"role":"user","content":"abcd"},'
+                '{"role":"assistant","content":"abcdefgh"}]',
+                '[{"role":"user","content":"abcdefghijkl"}]',
+            ]
+        }
+    )
+
+    dataframe.to_parquet(input_path)
+
+    token_lengths = read_parquet_token_lengths(str(input_path))
+
+    assert token_lengths == [3, 3]
+
+
+def test_read_dataset_token_lengths_automatically_reads_parquet(tmp_path):
+    input_path = tmp_path / "sample.parquet"
+
+    dataframe = pd.DataFrame(
+        {
+            "messages": [
+                '[{"role":"user","content":"abcd"}]',
+                '[{"role":"assistant","content":"abcdefgh"}]',
+            ]
+        }
+    )
+
+    dataframe.to_parquet(input_path)
+
+    token_lengths = read_dataset_token_lengths(str(input_path))
+
+    assert token_lengths == [1, 2]

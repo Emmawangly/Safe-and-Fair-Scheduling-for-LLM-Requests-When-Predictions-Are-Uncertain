@@ -96,30 +96,14 @@ queue = generate_workload(
 
 Using the same seed produces the same workload, which supports fair comparisons between scheduling algorithms.
 
-## Run Tests
 
-Install pytest:
+## Install Dependencies
 
-```bash
-python -m pip install pytest
-```
-
-Run the workload generator tests:
+Create and activate a Python virtual environment, then install project dependencies:
 
 ```bash
-python -m pytest tests
-```
+python -m pip install -r requirements.txt
 
-The tests verify:
-
-* Correct number of generated requests
-* Required request fields
-* Field data types
-* Non-decreasing arrival times
-* Reproducibility with the same seed
-* Perfect predictions at 0% error
-* Initial `wait_time = 0.0`
-* Higher uncertainty at higher error rates
 
 ## Current Status
 
