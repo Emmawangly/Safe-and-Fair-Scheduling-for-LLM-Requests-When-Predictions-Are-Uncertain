@@ -1,13 +1,3 @@
-"""
-LLM Scheduler Simulation Dashboard
-Run with: streamlit run dashboard.py
-
-TO USE REAL DATA: replace load_data() with pd.read_csv() calls.
-Each CSV needs: error_pct, jct, ttft, preemptions, jain_fairness, starvation_pct
-
-After replacing CSVs, click ⋮ menu → 'Clear cache' so Streamlit reloads the files.
-"""
-
 import hashlib
 import streamlit as st
 import pandas as pd
@@ -64,29 +54,7 @@ REQ_SCALE    = {500: 0.55, 1000: 1.0, 2000: 1.85}
 # ── Data ──────────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    """
-    Replace with real CSV loading:
-        return {
-            "fcfs":   pd.read_csv("results_fcfs.csv"),
-            "ltr":    pd.read_csv("results_ltr.csv"),
-            "robust": pd.read_csv("results_robust.csv"),
-        }
-    Columns needed: error_pct, jct, ttft, preemptions, jain_fairness, starvation_pct
-    """
-    # ── Synthetic data notes ──────────────────────────────────────────────────
-    # 1. FCFS degrades fastest with error (no prediction benefit).
-    # 2. LTR is better than FCFS at low error but converges toward FCFS at high
-    #    error because bad predictions break the size-ordering assumption.
-    #    Degradation is steeper from 40%+ as the paper (Saravana Kumar et al.)
-    #    shows OOD failure kicks in around that range.
-    # 3. Robust at 0% error == LTR (σᵢ=0 → α·σᵢ term vanishes → scheduler
-    #    reduces to LTR+aging; aging adds fairness overhead, not latency benefit,
-    #    so JCT matches LTR rather than beating it).
-    # 4. LTR starvation_pct > 0 even at 0% error because pure SJF always
-    #    disadvantages long requests — aging in Robust prevents this entirely.
-    # FCFS baseline: at 0% error FCFS/LTR ≈ 2.1x (matches Saravana Kumar et al.)
-    # Head-of-Line Blocking causes long requests to delay many short ones even
-    # with perfect predictions — this is the core motivation for LTR scheduling.
+
     fcfs = [
         {"error_pct":0,  "jct":2.10,"ttft":0.42,"preemptions":8,   "jain_fairness":0.80,"starvation_pct":4.0},
         {"error_pct":20, "jct":2.90,"ttft":0.55,"preemptions":25,  "jain_fairness":0.73,"starvation_pct":10.0},

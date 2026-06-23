@@ -3,25 +3,7 @@ from shared_structures import RequestPacket
 
 
 def fcfs_scheduler(queue: List[RequestPacket]) -> Optional[int]:
-    """
-    First-Come-First-Served (FCFS) scheduler.
-
-    Selects the index of the request with the earliest arrival_time.
-    Ties are broken by queue position — the request that appears first
-    in the list wins, preserving stable FCFS ordering.
-
-    Note: FCFS does not use predicted_mu, predicted_sigma, or actual_blocks
-    for ordering. However, it still suffers preemptions when the memory
-    allocation (based on predicted_mu) is inaccurate — this is why FCFS
-    degrades under high prediction error even though it ignores predictions.
-
-    Args:
-        queue: List of RequestPacket objects currently waiting in the queue.
-
-    Returns:
-        Index of the selected request in the queue, or None if the queue
-        is empty.
-    """
+    
     if not queue:
         return None
 

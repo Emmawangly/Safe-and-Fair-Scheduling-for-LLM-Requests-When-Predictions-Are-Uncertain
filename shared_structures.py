@@ -8,3 +8,5 @@ class RequestPacket:
     predicted_mu: float      #  Predicted block count with error 
     predicted_sigma: float    # Uncertainty of the prediction 
     wait_time: float = 0.0    # Seconds waited in the queue
+    ttft: float = 0.0          
+    preemptions: int = 0
