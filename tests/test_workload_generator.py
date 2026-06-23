@@ -125,3 +125,18 @@ def test_prediction_sigma_increases_with_error_rate():
 
     assert total_sigma_0 == 0.0
     assert total_sigma_80 > total_sigma_0
+
+def test_generator_samples_actual_blocks_from_profile():
+    block_profile = {
+        "block_lengths": [3, 3, 3],
+    }
+
+    queue = generate_workload(
+        num_requests=10,
+        error_rate_percent=40,
+        seed=42,
+        block_profile=block_profile,
+    )
+
+    for request in queue:
+        assert request["actual_blocks"] == 3

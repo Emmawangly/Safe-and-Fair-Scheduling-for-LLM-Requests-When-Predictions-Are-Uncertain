@@ -1,10 +1,39 @@
 import random
+from typing import Dict, Optional
 import math
 import json
 
+def sample_actual_blocks(
+    rng: random.Random,
+    block_profile: Optional[Dict[str, object]] = None,
+) -> int:
+    """
+    Return one actual KV-cache block requirement.
 
-def create_request(request_id, rng, arrival_time, error_rate_percent):
-    actual_blocks = rng.randint(1, 20)
+    Without a profile, keep the original temporary uniform distribution.
+    With a profile, sample from the profile's block_lengths list.
+    """
+    if block_profile is None:
+        return rng.randint(1, 20)
+
+    block_lengths = block_profile["block_lengths"]
+
+    if not isinstance(block_lengths, list) or not block_lengths:
+        raise ValueError(
+            "block_profile must contain a non-empty 'block_lengths' list"
+        )
+
+    return rng.choice(block_lengths)
+
+
+def create_request(
+    request_id,
+    rng,
+    arrival_time,
+    error_rate_percent,
+    block_profile=None,
+):
+    actual_blocks = sample_actual_blocks(rng, block_profile)
     error_fraction = error_rate_percent / 100
     noise_factor = rng.uniform(1 - error_fraction, 1 + error_fraction)
     predicted_mu = max(1.0, actual_blocks * noise_factor)
@@ -22,7 +51,12 @@ def create_request(request_id, rng, arrival_time, error_rate_percent):
     return request
 
 
-def generate_workload(num_requests, error_rate_percent, seed=42):
+def generate_workload(
+    num_requests,
+    error_rate_percent,
+    seed=42,
+    block_profile=None,
+):
     rng = random.Random(seed)
 
     queue = []
@@ -37,6 +71,7 @@ def generate_workload(num_requests, error_rate_percent, seed=42):
     rng,
     current_time,
     error_rate_percent,
+    block_profile,
 )
         queue.append(request)
 
