@@ -1,0 +1,16 @@
+{
+  "tokens_per_block": 16,
+  "sample_count": 3,
+  "min_blocks": 2,
+  "max_blocks": 4,
+  "mean_blocks": 2.667,
+  "median_blocks": 2.0,
+  "block_lengths": [
+    2,
+    2,
+    4
+  ],
+  "source": "LMSYS-style dataset",
+  "input_file": "data/lmsys_sample.jsonl",
+  "token_count_method": "character_estimate_4_chars_per_token"
+}

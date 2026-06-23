@@ -1,0 +1,18 @@
+{
+  "tokens_per_block": 16,
+  "sample_count": 8,
+  "min_blocks": 1,
+  "max_blocks": 16,
+  "mean_blocks": 4.625,
+  "median_blocks": 2.5,
+  "block_lengths": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    4,
+    8,
+    16
+  ]
+}
