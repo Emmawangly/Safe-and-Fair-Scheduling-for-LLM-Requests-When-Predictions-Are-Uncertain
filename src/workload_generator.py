@@ -10,11 +10,12 @@ def sample_actual_blocks(
     """
     Return one actual KV-cache block requirement.
 
-    Without a profile, keep the original temporary uniform distribution.
+    Without a profile, use a log-normal heavy-tailed distribution.
     With a profile, sample from the profile's block_lengths list.
     """
     if block_profile is None:
-        return rng.randint(1, 20)
+        raw = rng.lognormvariate(1.5, 1.0)
+        return max(1, min(200, int(raw)))
 
     block_lengths = block_profile["block_lengths"]
 

@@ -3,80 +3,80 @@
     "request_id": 1,
     "arrival_time": 1.02,
     "actual_blocks": 1,
-    "predicted_mu": 1.386,
-    "predicted_sigma": 0.462,
-    "wait_time": 0.0
-  },
-  {
-    "request_id": 2,
-    "arrival_time": 1.301,
-    "actual_blocks": 5,
-    "predicted_mu": 6.892,
-    "predicted_sigma": 2.309,
-    "wait_time": 0.0
-  },
-  {
-    "request_id": 3,
-    "arrival_time": 2.43,
-    "actual_blocks": 18,
-    "predicted_mu": 6.104,
-    "predicted_sigma": 8.314,
-    "wait_time": 0.0
-  },
-  {
-    "request_id": 4,
-    "arrival_time": 2.978,
-    "actual_blocks": 1,
     "predicted_mu": 1.0,
     "predicted_sigma": 0.462,
     "wait_time": 0.0
   },
   {
+    "request_id": 2,
+    "arrival_time": 2.354,
+    "actual_blocks": 74,
+    "predicted_mu": 25.094,
+    "predicted_sigma": 34.179,
+    "wait_time": 0.0
+  },
+  {
+    "request_id": 3,
+    "arrival_time": 2.902,
+    "actual_blocks": 4,
+    "predicted_mu": 2.073,
+    "predicted_sigma": 1.848,
+    "wait_time": 0.0
+  },
+  {
+    "request_id": 4,
+    "arrival_time": 3.951,
+    "actual_blocks": 4,
+    "predicted_mu": 4.571,
+    "predicted_sigma": 1.848,
+    "wait_time": 0.0
+  },
+  {
     "request_id": 5,
-    "arrival_time": 3.243,
-    "actual_blocks": 20,
-    "predicted_mu": 4.849,
-    "predicted_sigma": 9.238,
+    "arrival_time": 5.609,
+    "actual_blocks": 7,
+    "predicted_mu": 3.141,
+    "predicted_sigma": 3.233,
     "wait_time": 0.0
   },
   {
     "request_id": 6,
-    "arrival_time": 3.465,
-    "actual_blocks": 18,
-    "predicted_mu": 15.682,
-    "predicted_sigma": 8.314,
+    "arrival_time": 8.76,
+    "actual_blocks": 3,
+    "predicted_mu": 1.064,
+    "predicted_sigma": 1.386,
     "wait_time": 0.0
   },
   {
     "request_id": 7,
-    "arrival_time": 4.061,
-    "actual_blocks": 9,
-    "predicted_mu": 13.456,
-    "predicted_sigma": 4.157,
+    "arrival_time": 10.641,
+    "actual_blocks": 11,
+    "predicted_mu": 15.043,
+    "predicted_sigma": 5.081,
     "wait_time": 0.0
   },
   {
     "request_id": 8,
-    "arrival_time": 4.068,
-    "actual_blocks": 6,
-    "predicted_mu": 7.902,
-    "predicted_sigma": 2.771,
+    "arrival_time": 11.409,
+    "actual_blocks": 16,
+    "predicted_mu": 17.332,
+    "predicted_sigma": 7.39,
     "wait_time": 0.0
   },
   {
     "request_id": 9,
-    "arrival_time": 4.484,
-    "actual_blocks": 5,
-    "predicted_mu": 2.723,
-    "predicted_sigma": 2.309,
+    "arrival_time": 13.178,
+    "actual_blocks": 19,
+    "predicted_mu": 21.352,
+    "predicted_sigma": 8.776,
     "wait_time": 0.0
   },
   {
     "request_id": 10,
-    "arrival_time": 5.925,
-    "actual_blocks": 4,
-    "predicted_mu": 1.394,
-    "predicted_sigma": 1.848,
+    "arrival_time": 14.397,
+    "actual_blocks": 1,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.462,
     "wait_time": 0.0
   }
 ]
