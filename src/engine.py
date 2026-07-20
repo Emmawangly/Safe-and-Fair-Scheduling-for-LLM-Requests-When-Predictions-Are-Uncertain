@@ -1,6 +1,9 @@
 from shared_structures import RequestPacket
 #from schedulers import fcfs_scheduler
-from schedulers import robust_scheduler
+try:
+    from schedulers import robust_scheduler
+except ImportError:
+    from src.schedulers import robust_scheduler
 import csv
 
 class SimulationEngine:

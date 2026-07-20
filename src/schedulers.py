@@ -20,17 +20,13 @@ def ltr_scheduler(queue, **kwargs):
             selected_index = i
     return selected_index
 
- 
-
 def robust_scheduler(queue, alpha, beta):
     if not queue:
         return None
 
-    
     total_wait = sum(req.wait_time for req in queue)
-    avg_wait = total_wait / len(queue) if queue else 0.0
+    avg_wait = total_wait / len(queue)
 
-    
     if avg_wait == 0.0:
         avg_wait = 1.0
 
@@ -38,15 +34,14 @@ def robust_scheduler(queue, alpha, beta):
     best_score = float("-inf")
 
     for idx, req in enumerate(queue):
-        mu = req.predicted_mu
-        sigma = req.predicted_sigma
-        T_wait = req.wait_time
+        # Prevent invalid negative prediction values
+        mu = max(req.predicted_mu, 0.0)
+        sigma = max(req.predicted_sigma, 0.0)
+        T_wait = max(req.wait_time, 0.0)
 
-        
         denom = max(mu + alpha * sigma, 1e-6)
         term1 = 1.0 / denom
 
-        
         aging = beta * (T_wait / avg_wait)
 
         score = term1 + aging
@@ -55,4 +50,4 @@ def robust_scheduler(queue, alpha, beta):
             best_score = score
             best_index = idx
 
-    return best_index
+    return best_index    
