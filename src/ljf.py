@@ -1,11 +1,12 @@
 from typing import Optional, List
-from src.shared_structures import RequestPacket
+from shared_structures import RequestPacket
 
 
 def ljf_scheduler(queue: List[RequestPacket], **kwargs) -> Optional[int]:
     if not queue:
         return None
 
+    
     worst_idx = 0
     worst_mu = queue[0].predicted_mu
 
@@ -18,7 +19,7 @@ def ljf_scheduler(queue: List[RequestPacket], **kwargs) -> Optional[int]:
 
 
 if __name__ == "__main__":
-    from src.shared_structures import RequestPacket
+    from shared_structures import RequestPacket
 
     q = [
         RequestPacket(1, 0.0, 5, 3.0, 0.5),
@@ -26,6 +27,7 @@ if __name__ == "__main__":
         RequestPacket(3, 0.0, 7, 6.0, 0.3),
     ]
 
+    # quick test to check it still works
     result = ljf_scheduler(q)
     assert result == 1
     print(f"  ✓ LJF selected index {result} (request_id={q[result].request_id}, mu={q[result].predicted_mu})")
