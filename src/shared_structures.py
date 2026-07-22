@@ -10,3 +10,4 @@ class RequestPacket:
     wait_time: float = 0.0
     ttft: float = 0.0
     preemptions: int = 0
+    timed_out: bool = False

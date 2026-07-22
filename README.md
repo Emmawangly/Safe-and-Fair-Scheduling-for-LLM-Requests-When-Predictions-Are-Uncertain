@@ -1,167 +1,123 @@
 # Safe and Fair Scheduling for LLM Requests When Predictions Are Uncertain
 
-CSCI 6806 / INFO 4205 Capstone Project
+CSCI 6806 Capstone Project — FDU Vancouver
+Group members: Chang Liu, Juan Garcia, Liyang Wang, Loriynne Duarte
 
-This project develops a Python discrete-event simulation framework for comparing LLM request scheduling policies under uncertain resource predictions.
+A Python discrete-event simulator created to compare LLM request scheduling policies under uncertain resource predictions
 
-The project compares:
+## Schedulers that were compared in the studies
 
-* First-Come-First-Served (FCFS)
-* Learning-to-Rank (LTR) scheduling
-* A Robust Scheduler that considers predicted cost, uncertainty, and waiting time
-
-## Member 1: Workload Generator
-
-The workload generator is located at:
+**FCFS** —> first-come-first-served. Our baseline 
+**LTR** —> learning-to-rank. Our starting point in the extension research
+**LJF** —> longest-job-first. This was used mainly to have a parameter of the worst case scenario
+**Robust** —> our scheduler! It combines a prediction-uncertainty penalty with an aging term:
 
 ```text
-src/workload_generator.py
+Robust Score Formula = T_wait_avg / (mu_i + alpha * sigma_i) + beta * (T_wait_i / T_wait_avg)
 ```
 
-It creates synthetic LLM request packets for simulation experiments.
+## Git Repository structure
 
-Each request contains the shared interface fields:
+```text
+src/
+engine, schedulers, metrics, workload generator
 
-```python
-{
-    "request_id": int,
-    "arrival_time": float,
-    "actual_blocks": int,
-    "predicted_mu": float,
-    "predicted_sigma": float,
-    "wait_time": float,
-}
+dashboard/
+dashboard
+
+pipeline/
+sweep, parameter selection, OOD test
+
+scripts/
+matplotlib figures scripts used in the report 
+
+tests/
+automated unit tests
+
+data/
+generated workload files
+
+results/
+generated CSV output from every experiment 
+
+docs/
+fina reports
+
 ```
 
-### Field meanings
+## Running the Project!
 
-| Field             | Meaning                                           | Used by           |
-| ----------------- | ------------------------------------------------- | ----------------- |
-| `request_id`      | Unique request identifier                         | All modules       |
-| `arrival_time`    | Simulated time when the request enters the system | Engine            |
-| `actual_blocks`   | True KV-cache block requirement                   | Engine only       |
-| `predicted_mu`    | Predicted memory cost in KV-cache blocks          | Scheduler         |
-| `predicted_sigma` | Prediction uncertainty                            | Robust Scheduler  |
-| `wait_time`       | Time currently spent waiting in the queue         | Updated by Engine |
-
-The scheduler must not use `actual_blocks` when making scheduling decisions. It should use only predicted values such as `predicted_mu` and `predicted_sigma`.
-
-## Generate Workloads
-
-Run the generator from the project root:
+1. Before running the tests and the simulator, is necessary to install all the libraries to run the project. This command will install the libraries: 
 
 ```bash
-python src/workload_generator.py
+pip install -r requirements.txt
 ```
 
-This creates five workload files in the `data/` folder:
-
-```text
-data/workload_error_0.json
-data/workload_error_20.json
-data/workload_error_40.json
-data/workload_error_60.json
-data/workload_error_80.json
-```
-
-Each workload contains 1,000 simulated requests.
-
-The error levels represent prediction error rates of:
-
-```text
-0%, 20%, 40%, 60%, and 80%
-```
-
-A small integration sample is also created:
-
-```text
-sample_output.json
-```
-
-This file contains 10 requests with an 80% prediction error rate.
-
-## Use the Generator in Python
-
-Other modules can import the generator directly:
-
-```python
-from workload_generator import generate_workload
-
-queue = generate_workload(
-    num_requests=1000,
-    error_rate_percent=40,
-    seed=42,
-)
-```
-
-Using the same seed produces the same workload, which supports fair comparisons between scheduling algorithms.
-
-
-## Install Dependencies
-
-Create and activate a Python virtual environment, then install project dependencies:
+2. Bellow is the order in which the tests must be executed. They must be done in order, because one output will feed the next one.
 
 ```bash
-python -m pip install -r requirements.txt
-
-
-## Current Status
-
-The current workload generator uses synthetic request lengths and configurable prediction noise.
-
-The next planned update is to replace the temporary synthetic block-length distribution with a distribution derived from LMSYS-Chat-1M data, while keeping the same shared request interface.
-## LMSYS-Style Profile Pipeline
-
-The repository includes a reusable pipeline for converting LMSYS-style conversation data into workload profiles.
-
-Pipeline:
-
-```text
-JSONL conversation records
-→ estimated token lengths
-→ KV-cache block profile
-→ profile-based workload generation
+py -m pytest tests/ -v # this will run the 29 automated tests
+py src/workload_generator.py # this will create the 5 workload files that will create the prediction error from 0-80%
+py pipeline/generate_ood_workload.py # this will create the out-of-distribution workload files
+py src/run_simulation.py # this will run the simulation for each scheduler (FCFS, LTR, Robust and LJF) in all 4 scenarios (light, normal, stress and saturation)
+py pipeline/sweep.py # this will run all the combinations or the alpha and beta (total of 3240)
+py pipeline/select_best_params.py # this will create the best parameters of alpha and beta per scenario and error levels
+py pipeline/generate_tuned_robust.py  # this will rerun the  Robust scheduler with a tuned point for each scenario
+py -c "import sys; sys.path.insert(0,'pipeline'); import sweep; sweep.run_ablation()" #This updates the ablation results
+py pipeline/run_ood_test.py # this will run the out-of-distribution workloads for FCFS, LTR and Robust
 ```
 
-### Build a Block Profile
-
-The extractor expects a local JSONL file with conversation records in this format:
-
-```json
-{
-  "conversation": [
-    {"role": "user", "content": "Example user request"},
-    {"role": "assistant", "content": "Example assistant response"}
-  ]
-}
-```
-
-Run:
+3. The following part is not necessary for the simulation. They will create all 9 figures we included in the final written report
 
 ```bash
-python src/lmsys_extract_profile.py
+py scripts/fig1_jct_vs_error.py
+py scripts/fig2_starvation_vs_error.py
+py scripts/fig3_heatmap.py
+py scripts/fig4_ablation.py
+py scripts/fig5_pareto.py
+py scripts/fig6_advantage_vs_fcfs.py
+py scripts/fig7_jains_fairness.py
+py scripts/fig8_ood_jct.py
+py scripts/fig9_ood_starvation.py
 ```
 
-This creates:
+4. The dashboard we created it`s a visual representation of the performance of our scheduler and a faster way to find the best arrangements for our formula in each scenario proposed. It works as and interactive demo where you can pick a load scenario, the level of prediction error and tune the alpha and beta values live for our scheduler (the FCFS and LTR dont have changeble parameters). It was also created a default configuration that shows the best Job COmpletion Time and Starvation percentage across all the error levels.
 
-```text
-data/lmsys_block_profile.json
-```
-
-### Generate Profile-Based Workloads
-
-After a profile is available, run:
 
 ```bash
-python src/generate_profile_workloads.py
+streamlit run dashboard/dashboard.py
 ```
 
-The script generates workloads for 0%, 20%, 40%, 60%, and 80% prediction error and verifies that all error levels use identical `actual_blocks` values.
+## Shared request
 
-### Important Note
+In our simulator, every module reads and writes the object `RequestPacket` that is defined in the `src/shared_structures.py`. The fields are used like showed bellow:
 
-The current `lmsys_sample.jsonl` file is a small local example used only to validate the pipeline.
+**request_id** -> Is used by all modules as an unique request identifier
 
-It is not the real LMSYS-Chat-1M dataset.
+**arrival_time** -> Is used mainly by the `engine.py` and simulates the time that each request enters in the system to be answered
 
-The current token estimator uses approximately four characters per token. Before final experiments, this should be replaced or validated with the tokenizer selected by the project team.
+**actual_blocks** -> Is used by the `engine.py` and represents the real request size in KV-cache blocks and only the simulation engine can see
+
+**predicted_mu** -> Is used mainly by the `schedulers.py` and is the prediction that the system does for the block cost of the request. The scheduler just sees this guess not the actual_blocks
+
+**predicted_sigma** -> Is used by the `robust_scheduler.py` and measures how confident the system is about the prediction (The higher the sigma, the higher the uncertainty)
+
+**wait_time** -> The `engine.py` updates this value every simulated instant, and it shows how long a request is waiting in line
+
+**preemptions** -> Is used by the `metrics.py` and shows the risky predictions that the model made for a resquest (wrong predictions), that would mean a preemption in a real situation
+
+**time_out** -> Is updated by the `engine.py` and represents the requests that were canceled because they waited too much. The maximum wait time was decided as 300s.
+
+
+
+## Final results and report
+
+This are the best configuration found for our scheduler in each of the scenarios:
+
+**Light scenario** (Private LLM) -> alpha: 0.25, beta: 18, Average JCT: 76,5s, starvation: 1,5-2% (all errors levels), Advantage over FCFS in JCT: 9,7%
+
+**Normal scenario** (Commercial Production Service) -> alpha: 0.25, beta: 18, Average JCT: 101,5s, starvation: 0-0,64% (all errors levels), Advantage over FCFS in JCT: 42,7%
+
+**Stress scenario** (Peak demand) -> alpha: 0.25, beta: 18, Average JCT: 103s, starvation: 0-1,25% (all errors levels), Advantage over FCFS in JCT: 55,9%
+
+**Saturation scenario** (Limit Capacity) -> alpha: 0.5, beta: 18, Average JCT: 105s, starvation: 0-1,66% (all errors levels), Advantage over FCFS in JCT: 58,1%

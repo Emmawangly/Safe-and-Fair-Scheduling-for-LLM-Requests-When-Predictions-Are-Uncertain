@@ -91,8 +91,8 @@
     "request_id": 12,
     "arrival_time": 10.538,
     "actual_blocks": 6,
-    "predicted_mu": 9.658,
-    "predicted_sigma": 5.99,
+    "predicted_mu": 9.558,
+    "predicted_sigma": 5.928,
     "wait_time": 0.0
   },
   {
@@ -163,16 +163,16 @@
     "request_id": 21,
     "arrival_time": 30.366,
     "actual_blocks": 3,
-    "predicted_mu": 5.684,
-    "predicted_sigma": 3.816,
+    "predicted_mu": 5.623,
+    "predicted_sigma": 3.776,
     "wait_time": 0.0
   },
   {
     "request_id": 22,
     "arrival_time": 30.672,
     "actual_blocks": 4,
-    "predicted_mu": 7.417,
-    "predicted_sigma": 4.839,
+    "predicted_mu": 7.35,
+    "predicted_sigma": 4.795,
     "wait_time": 0.0
   },
   {
@@ -243,8 +243,8 @@
     "request_id": 31,
     "arrival_time": 38.821,
     "actual_blocks": 5,
-    "predicted_mu": 9.131,
-    "predicted_sigma": 5.927,
+    "predicted_mu": 9.044,
+    "predicted_sigma": 5.87,
     "wait_time": 0.0
   },
   {
@@ -259,8 +259,8 @@
     "request_id": 33,
     "arrival_time": 41.636,
     "actual_blocks": 5,
-    "predicted_mu": 8.187,
-    "predicted_sigma": 4.858,
+    "predicted_mu": 8.16,
+    "predicted_sigma": 4.842,
     "wait_time": 0.0
   },
   {
@@ -291,8 +291,8 @@
     "request_id": 37,
     "arrival_time": 43.727,
     "actual_blocks": 16,
-    "predicted_mu": 18.395,
-    "predicted_sigma": 11.566,
+    "predicted_mu": 17.754,
+    "predicted_sigma": 11.163,
     "wait_time": 0.0
   },
   {
@@ -315,8 +315,8 @@
     "request_id": 40,
     "arrival_time": 45.824,
     "actual_blocks": 3,
-    "predicted_mu": 6.468,
-    "predicted_sigma": 4.354,
+    "predicted_mu": 6.466,
+    "predicted_sigma": 4.352,
     "wait_time": 0.0
   },
   {
@@ -339,8 +339,8 @@
     "request_id": 43,
     "arrival_time": 48.2,
     "actual_blocks": 9,
-    "predicted_mu": 1.564,
-    "predicted_sigma": 1.055,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.675,
     "wait_time": 0.0
   },
   {
@@ -379,24 +379,24 @@
     "request_id": 48,
     "arrival_time": 53.158,
     "actual_blocks": 1,
-    "predicted_mu": 2.19,
-    "predicted_sigma": 1.516,
+    "predicted_mu": 2.189,
+    "predicted_sigma": 1.515,
     "wait_time": 0.0
   },
   {
     "request_id": 49,
     "arrival_time": 53.234,
     "actual_blocks": 2,
-    "predicted_mu": 3.782,
-    "predicted_sigma": 2.503,
+    "predicted_mu": 3.747,
+    "predicted_sigma": 2.48,
     "wait_time": 0.0
   },
   {
     "request_id": 50,
     "arrival_time": 55.348,
     "actual_blocks": 3,
-    "predicted_mu": 4.363,
-    "predicted_sigma": 2.688,
+    "predicted_mu": 4.303,
+    "predicted_sigma": 2.651,
     "wait_time": 0.0
   },
   {
@@ -443,16 +443,16 @@
     "request_id": 56,
     "arrival_time": 61.062,
     "actual_blocks": 20,
-    "predicted_mu": 24.089,
-    "predicted_sigma": 14.849,
+    "predicted_mu": 23.524,
+    "predicted_sigma": 14.501,
     "wait_time": 0.0
   },
   {
     "request_id": 57,
     "arrival_time": 61.222,
     "actual_blocks": 1,
-    "predicted_mu": 1.687,
-    "predicted_sigma": 1.09,
+    "predicted_mu": 1.663,
+    "predicted_sigma": 1.074,
     "wait_time": 0.0
   },
   {
@@ -475,16 +475,16 @@
     "request_id": 60,
     "arrival_time": 67.366,
     "actual_blocks": 9,
-    "predicted_mu": 1.975,
-    "predicted_sigma": 1.174,
+    "predicted_mu": 1.735,
+    "predicted_sigma": 1.032,
     "wait_time": 0.0
   },
   {
     "request_id": 61,
     "arrival_time": 69.423,
     "actual_blocks": 9,
-    "predicted_mu": 8.506,
-    "predicted_sigma": 5.173,
+    "predicted_mu": 8.247,
+    "predicted_sigma": 5.015,
     "wait_time": 0.0
   },
   {
@@ -555,8 +555,8 @@
     "request_id": 70,
     "arrival_time": 75.585,
     "actual_blocks": 1,
-    "predicted_mu": 1.458,
-    "predicted_sigma": 0.97,
+    "predicted_mu": 1.409,
+    "predicted_sigma": 0.937,
     "wait_time": 0.0
   },
   {
@@ -579,8 +579,8 @@
     "request_id": 73,
     "arrival_time": 78.838,
     "actual_blocks": 1,
-    "predicted_mu": 1.688,
-    "predicted_sigma": 1.093,
+    "predicted_mu": 1.664,
+    "predicted_sigma": 1.077,
     "wait_time": 0.0
   },
   {
@@ -691,16 +691,16 @@
     "request_id": 87,
     "arrival_time": 89.058,
     "actual_blocks": 46,
-    "predicted_mu": 35.213,
-    "predicted_sigma": 20.584,
+    "predicted_mu": 34.858,
+    "predicted_sigma": 20.376,
     "wait_time": 0.0
   },
   {
     "request_id": 88,
     "arrival_time": 89.064,
     "actual_blocks": 1,
-    "predicted_mu": 1.986,
-    "predicted_sigma": 1.241,
+    "predicted_mu": 1.982,
+    "predicted_sigma": 1.239,
     "wait_time": 0.0
   },
   {
@@ -747,16 +747,16 @@
     "request_id": 94,
     "arrival_time": 90.942,
     "actual_blocks": 9,
-    "predicted_mu": 14.987,
-    "predicted_sigma": 8.666,
+    "predicted_mu": 14.984,
+    "predicted_sigma": 8.665,
     "wait_time": 0.0
   },
   {
     "request_id": 95,
     "arrival_time": 91.233,
     "actual_blocks": 2,
-    "predicted_mu": 2.64,
-    "predicted_sigma": 1.562,
+    "predicted_mu": 2.622,
+    "predicted_sigma": 1.552,
     "wait_time": 0.0
   },
   {
@@ -787,8 +787,8 @@
     "request_id": 99,
     "arrival_time": 95.215,
     "actual_blocks": 5,
-    "predicted_mu": 8.579,
-    "predicted_sigma": 5.042,
+    "predicted_mu": 8.566,
+    "predicted_sigma": 5.034,
     "wait_time": 0.0
   },
   {
@@ -819,8 +819,8 @@
     "request_id": 103,
     "arrival_time": 101.4,
     "actual_blocks": 13,
-    "predicted_mu": 14.318,
-    "predicted_sigma": 8.652,
+    "predicted_mu": 14.039,
+    "predicted_sigma": 8.483,
     "wait_time": 0.0
   },
   {
@@ -939,8 +939,8 @@
     "request_id": 118,
     "arrival_time": 112.797,
     "actual_blocks": 5,
-    "predicted_mu": 1.3,
-    "predicted_sigma": 0.897,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.69,
     "wait_time": 0.0
   },
   {
@@ -955,16 +955,16 @@
     "request_id": 120,
     "arrival_time": 114.841,
     "actual_blocks": 2,
-    "predicted_mu": 1.339,
-    "predicted_sigma": 0.921,
+    "predicted_mu": 1.072,
+    "predicted_sigma": 0.738,
     "wait_time": 0.0
   },
   {
     "request_id": 121,
     "arrival_time": 115.812,
     "actual_blocks": 9,
-    "predicted_mu": 4.036,
-    "predicted_sigma": 2.698,
+    "predicted_mu": 2.909,
+    "predicted_sigma": 1.945,
     "wait_time": 0.0
   },
   {
@@ -995,16 +995,16 @@
     "request_id": 125,
     "arrival_time": 118.829,
     "actual_blocks": 8,
-    "predicted_mu": 7.302,
-    "predicted_sigma": 4.835,
+    "predicted_mu": 6.626,
+    "predicted_sigma": 4.388,
     "wait_time": 0.0
   },
   {
     "request_id": 126,
     "arrival_time": 119.616,
     "actual_blocks": 71,
-    "predicted_mu": 10.451,
-    "predicted_sigma": 6.404,
+    "predicted_mu": 6.409,
+    "predicted_sigma": 3.927,
     "wait_time": 0.0
   },
   {
@@ -1019,8 +1019,8 @@
     "request_id": 128,
     "arrival_time": 119.93,
     "actual_blocks": 13,
-    "predicted_mu": 14.015,
-    "predicted_sigma": 9.339,
+    "predicted_mu": 13.014,
+    "predicted_sigma": 8.672,
     "wait_time": 0.0
   },
   {
@@ -1035,7 +1035,7 @@
     "request_id": 130,
     "arrival_time": 123.879,
     "actual_blocks": 17,
-    "predicted_mu": 36.715,
+    "predicted_mu": 36.714,
     "predicted_sigma": 24.602,
     "wait_time": 0.0
   },
@@ -1115,32 +1115,32 @@
     "request_id": 140,
     "arrival_time": 133.343,
     "actual_blocks": 4,
-    "predicted_mu": 4.118,
-    "predicted_sigma": 2.534,
+    "predicted_mu": 3.986,
+    "predicted_sigma": 2.453,
     "wait_time": 0.0
   },
   {
     "request_id": 141,
     "arrival_time": 134.604,
     "actual_blocks": 4,
-    "predicted_mu": 8.108,
-    "predicted_sigma": 4.998,
+    "predicted_mu": 8.102,
+    "predicted_sigma": 4.995,
     "wait_time": 0.0
   },
   {
     "request_id": 142,
     "arrival_time": 134.883,
     "actual_blocks": 5,
-    "predicted_mu": 5.432,
-    "predicted_sigma": 3.567,
+    "predicted_mu": 5.094,
+    "predicted_sigma": 3.345,
     "wait_time": 0.0
   },
   {
     "request_id": 143,
     "arrival_time": 136.998,
     "actual_blocks": 10,
-    "predicted_mu": 8.432,
-    "predicted_sigma": 5.024,
+    "predicted_mu": 8.244,
+    "predicted_sigma": 4.912,
     "wait_time": 0.0
   },
   {
@@ -1299,8 +1299,8 @@
     "request_id": 163,
     "arrival_time": 165.024,
     "actual_blocks": 6,
-    "predicted_mu": 3.646,
-    "predicted_sigma": 2.365,
+    "predicted_mu": 3.118,
+    "predicted_sigma": 2.022,
     "wait_time": 0.0
   },
   {
@@ -1315,8 +1315,8 @@
     "request_id": 165,
     "arrival_time": 167.76,
     "actual_blocks": 13,
-    "predicted_mu": 16.912,
-    "predicted_sigma": 10.454,
+    "predicted_mu": 16.57,
+    "predicted_sigma": 10.243,
     "wait_time": 0.0
   },
   {
@@ -1363,8 +1363,8 @@
     "request_id": 171,
     "arrival_time": 178.101,
     "actual_blocks": 42,
-    "predicted_mu": 88.724,
-    "predicted_sigma": 60.648,
+    "predicted_mu": 88.471,
+    "predicted_sigma": 60.475,
     "wait_time": 0.0
   },
   {
@@ -1411,16 +1411,16 @@
     "request_id": 177,
     "arrival_time": 186.747,
     "actual_blocks": 4,
-    "predicted_mu": 1.145,
-    "predicted_sigma": 0.734,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.641,
     "wait_time": 0.0
   },
   {
     "request_id": 178,
     "arrival_time": 187.351,
     "actual_blocks": 13,
-    "predicted_mu": 11.752,
-    "predicted_sigma": 7.848,
+    "predicted_mu": 10.568,
+    "predicted_sigma": 7.058,
     "wait_time": 0.0
   },
   {
@@ -1435,24 +1435,24 @@
     "request_id": 180,
     "arrival_time": 189.231,
     "actual_blocks": 3,
-    "predicted_mu": 5.544,
-    "predicted_sigma": 3.715,
+    "predicted_mu": 5.475,
+    "predicted_sigma": 3.668,
     "wait_time": 0.0
   },
   {
     "request_id": 181,
     "arrival_time": 189.336,
     "actual_blocks": 9,
-    "predicted_mu": 7.045,
-    "predicted_sigma": 4.808,
+    "predicted_mu": 5.992,
+    "predicted_sigma": 4.09,
     "wait_time": 0.0
   },
   {
     "request_id": 182,
     "arrival_time": 189.844,
     "actual_blocks": 2,
-    "predicted_mu": 1.89,
-    "predicted_sigma": 1.177,
+    "predicted_mu": 1.805,
+    "predicted_sigma": 1.124,
     "wait_time": 0.0
   },
   {
@@ -1539,8 +1539,8 @@
     "request_id": 193,
     "arrival_time": 197.813,
     "actual_blocks": 5,
-    "predicted_mu": 5.825,
-    "predicted_sigma": 4.021,
+    "predicted_mu": 5.365,
+    "predicted_sigma": 3.704,
     "wait_time": 0.0
   },
   {
@@ -1603,16 +1603,16 @@
     "request_id": 201,
     "arrival_time": 203.85,
     "actual_blocks": 2,
-    "predicted_mu": 1.526,
-    "predicted_sigma": 0.948,
+    "predicted_mu": 1.43,
+    "predicted_sigma": 0.888,
     "wait_time": 0.0
   },
   {
     "request_id": 202,
     "arrival_time": 205.288,
     "actual_blocks": 8,
-    "predicted_mu": 16.186,
-    "predicted_sigma": 10.057,
+    "predicted_mu": 16.171,
+    "predicted_sigma": 10.047,
     "wait_time": 0.0
   },
   {
@@ -1715,8 +1715,8 @@
     "request_id": 215,
     "arrival_time": 213.213,
     "actual_blocks": 1,
-    "predicted_mu": 1.262,
-    "predicted_sigma": 0.758,
+    "predicted_mu": 1.246,
+    "predicted_sigma": 0.749,
     "wait_time": 0.0
   },
   {
@@ -1755,16 +1755,16 @@
     "request_id": 220,
     "arrival_time": 218.943,
     "actual_blocks": 6,
-    "predicted_mu": 5.984,
-    "predicted_sigma": 3.518,
+    "predicted_mu": 5.928,
+    "predicted_sigma": 3.485,
     "wait_time": 0.0
   },
   {
     "request_id": 221,
     "arrival_time": 220.347,
     "actual_blocks": 10,
-    "predicted_mu": 12.076,
-    "predicted_sigma": 7.944,
+    "predicted_mu": 11.47,
+    "predicted_sigma": 7.545,
     "wait_time": 0.0
   },
   {
@@ -1803,8 +1803,8 @@
     "request_id": 226,
     "arrival_time": 223.784,
     "actual_blocks": 15,
-    "predicted_mu": 20.023,
-    "predicted_sigma": 12.113,
+    "predicted_mu": 19.773,
+    "predicted_sigma": 11.962,
     "wait_time": 0.0
   },
   {
@@ -1851,8 +1851,8 @@
     "request_id": 232,
     "arrival_time": 229.108,
     "actual_blocks": 13,
-    "predicted_mu": 24.125,
-    "predicted_sigma": 15.671,
+    "predicted_mu": 23.919,
+    "predicted_sigma": 15.537,
     "wait_time": 0.0
   },
   {
@@ -1867,8 +1867,8 @@
     "request_id": 234,
     "arrival_time": 230.713,
     "actual_blocks": 2,
-    "predicted_mu": 1.331,
-    "predicted_sigma": 0.884,
+    "predicted_mu": 1.124,
+    "predicted_sigma": 0.746,
     "wait_time": 0.0
   },
   {
@@ -1931,8 +1931,8 @@
     "request_id": 242,
     "arrival_time": 237.008,
     "actual_blocks": 11,
-    "predicted_mu": 23.365,
-    "predicted_sigma": 15.617,
+    "predicted_mu": 23.338,
+    "predicted_sigma": 15.599,
     "wait_time": 0.0
   },
   {
@@ -1955,16 +1955,16 @@
     "request_id": 245,
     "arrival_time": 241.397,
     "actual_blocks": 4,
-    "predicted_mu": 7.071,
-    "predicted_sigma": 4.395,
+    "predicted_mu": 7.025,
+    "predicted_sigma": 4.367,
     "wait_time": 0.0
   },
   {
     "request_id": 246,
     "arrival_time": 241.733,
     "actual_blocks": 8,
-    "predicted_mu": 2.504,
-    "predicted_sigma": 1.625,
+    "predicted_mu": 1.657,
+    "predicted_sigma": 1.075,
     "wait_time": 0.0
   },
   {
@@ -1987,8 +1987,8 @@
     "request_id": 249,
     "arrival_time": 242.805,
     "actual_blocks": 23,
-    "predicted_mu": 6.434,
-    "predicted_sigma": 3.838,
+    "predicted_mu": 5.778,
+    "predicted_sigma": 3.446,
     "wait_time": 0.0
   },
   {
@@ -2043,16 +2043,16 @@
     "request_id": 256,
     "arrival_time": 246.286,
     "actual_blocks": 4,
-    "predicted_mu": 4.856,
-    "predicted_sigma": 3.338,
+    "predicted_mu": 4.516,
+    "predicted_sigma": 3.104,
     "wait_time": 0.0
   },
   {
     "request_id": 257,
     "arrival_time": 246.781,
     "actual_blocks": 3,
-    "predicted_mu": 1.663,
-    "predicted_sigma": 1.137,
+    "predicted_mu": 1.249,
+    "predicted_sigma": 0.854,
     "wait_time": 0.0
   },
   {
@@ -2099,24 +2099,24 @@
     "request_id": 263,
     "arrival_time": 251.64,
     "actual_blocks": 1,
-    "predicted_mu": 1.753,
-    "predicted_sigma": 1.037,
+    "predicted_mu": 1.75,
+    "predicted_sigma": 1.035,
     "wait_time": 0.0
   },
   {
     "request_id": 264,
     "arrival_time": 252.044,
     "actual_blocks": 1,
-    "predicted_mu": 1.57,
-    "predicted_sigma": 1.007,
+    "predicted_mu": 1.541,
+    "predicted_sigma": 0.989,
     "wait_time": 0.0
   },
   {
     "request_id": 265,
     "arrival_time": 254.294,
     "actual_blocks": 4,
-    "predicted_mu": 4.444,
-    "predicted_sigma": 2.923,
+    "predicted_mu": 4.176,
+    "predicted_sigma": 2.747,
     "wait_time": 0.0
   },
   {
@@ -2147,8 +2147,8 @@
     "request_id": 269,
     "arrival_time": 259.661,
     "actual_blocks": 6,
-    "predicted_mu": 8.32,
-    "predicted_sigma": 5.0,
+    "predicted_mu": 8.241,
+    "predicted_sigma": 4.952,
     "wait_time": 0.0
   },
   {
@@ -2219,8 +2219,8 @@
     "request_id": 278,
     "arrival_time": 270.192,
     "actual_blocks": 36,
-    "predicted_mu": 49.171,
-    "predicted_sigma": 32.416,
+    "predicted_mu": 47.321,
+    "predicted_sigma": 31.196,
     "wait_time": 0.0
   },
   {
@@ -2243,8 +2243,8 @@
     "request_id": 281,
     "arrival_time": 273.423,
     "actual_blocks": 9,
-    "predicted_mu": 14.934,
-    "predicted_sigma": 8.754,
+    "predicted_mu": 14.909,
+    "predicted_sigma": 8.74,
     "wait_time": 0.0
   },
   {
@@ -2259,8 +2259,8 @@
     "request_id": 283,
     "arrival_time": 275.015,
     "actual_blocks": 6,
-    "predicted_mu": 5.641,
-    "predicted_sigma": 3.82,
+    "predicted_mu": 5.052,
+    "predicted_sigma": 3.421,
     "wait_time": 0.0
   },
   {
@@ -2307,8 +2307,8 @@
     "request_id": 289,
     "arrival_time": 283.704,
     "actual_blocks": 6,
-    "predicted_mu": 5.033,
-    "predicted_sigma": 2.945,
+    "predicted_mu": 4.985,
+    "predicted_sigma": 2.917,
     "wait_time": 0.0
   },
   {
@@ -2339,8 +2339,8 @@
     "request_id": 293,
     "arrival_time": 285.819,
     "actual_blocks": 18,
-    "predicted_mu": 36.669,
-    "predicted_sigma": 23.047,
+    "predicted_mu": 36.63,
+    "predicted_sigma": 23.023,
     "wait_time": 0.0
   },
   {
@@ -2379,16 +2379,16 @@
     "request_id": 298,
     "arrival_time": 288.689,
     "actual_blocks": 20,
-    "predicted_mu": 9.352,
-    "predicted_sigma": 6.335,
+    "predicted_mu": 6.631,
+    "predicted_sigma": 4.492,
     "wait_time": 0.0
   },
   {
     "request_id": 299,
     "arrival_time": 289.125,
     "actual_blocks": 1,
-    "predicted_mu": 1.378,
-    "predicted_sigma": 0.88,
+    "predicted_mu": 1.341,
+    "predicted_sigma": 0.856,
     "wait_time": 0.0
   },
   {
@@ -2451,8 +2451,8 @@
     "request_id": 307,
     "arrival_time": 295.228,
     "actual_blocks": 2,
-    "predicted_mu": 2.196,
-    "predicted_sigma": 1.347,
+    "predicted_mu": 2.137,
+    "predicted_sigma": 1.311,
     "wait_time": 0.0
   },
   {
@@ -2475,8 +2475,8 @@
     "request_id": 310,
     "arrival_time": 300.396,
     "actual_blocks": 1,
-    "predicted_mu": 1.573,
-    "predicted_sigma": 0.932,
+    "predicted_mu": 1.567,
+    "predicted_sigma": 0.928,
     "wait_time": 0.0
   },
   {
@@ -2523,8 +2523,8 @@
     "request_id": 316,
     "arrival_time": 309.501,
     "actual_blocks": 2,
-    "predicted_mu": 2.909,
-    "predicted_sigma": 1.709,
+    "predicted_mu": 2.899,
+    "predicted_sigma": 1.703,
     "wait_time": 0.0
   },
   {
@@ -2595,8 +2595,8 @@
     "request_id": 325,
     "arrival_time": 317.105,
     "actual_blocks": 15,
-    "predicted_mu": 28.302,
-    "predicted_sigma": 18.759,
+    "predicted_mu": 28.032,
+    "predicted_sigma": 18.58,
     "wait_time": 0.0
   },
   {
@@ -2611,32 +2611,32 @@
     "request_id": 327,
     "arrival_time": 318.608,
     "actual_blocks": 5,
-    "predicted_mu": 9.814,
-    "predicted_sigma": 6.512,
+    "predicted_mu": 9.749,
+    "predicted_sigma": 6.469,
     "wait_time": 0.0
   },
   {
     "request_id": 328,
     "arrival_time": 318.801,
     "actual_blocks": 9,
-    "predicted_mu": 19.167,
-    "predicted_sigma": 12.568,
+    "predicted_mu": 19.164,
+    "predicted_sigma": 12.566,
     "wait_time": 0.0
   },
   {
     "request_id": 329,
     "arrival_time": 319.306,
     "actual_blocks": 3,
-    "predicted_mu": 6.028,
-    "predicted_sigma": 4.071,
+    "predicted_mu": 5.99,
+    "predicted_sigma": 4.045,
     "wait_time": 0.0
   },
   {
     "request_id": 330,
     "arrival_time": 321.4,
     "actual_blocks": 5,
-    "predicted_mu": 9.153,
-    "predicted_sigma": 6.081,
+    "predicted_mu": 9.04,
+    "predicted_sigma": 6.007,
     "wait_time": 0.0
   },
   {
@@ -2651,8 +2651,8 @@
     "request_id": 332,
     "arrival_time": 322.328,
     "actual_blocks": 1,
-    "predicted_mu": 1.154,
-    "predicted_sigma": 0.688,
+    "predicted_mu": 1.14,
+    "predicted_sigma": 0.68,
     "wait_time": 0.0
   },
   {
@@ -2771,8 +2771,8 @@
     "request_id": 347,
     "arrival_time": 333.901,
     "actual_blocks": 3,
-    "predicted_mu": 6.155,
-    "predicted_sigma": 4.248,
+    "predicted_mu": 6.117,
+    "predicted_sigma": 4.221,
     "wait_time": 0.0
   },
   {
@@ -2827,8 +2827,8 @@
     "request_id": 354,
     "arrival_time": 339.889,
     "actual_blocks": 6,
-    "predicted_mu": 5.151,
-    "predicted_sigma": 3.115,
+    "predicted_mu": 4.985,
+    "predicted_sigma": 3.015,
     "wait_time": 0.0
   },
   {
@@ -2851,8 +2851,8 @@
     "request_id": 357,
     "arrival_time": 342.614,
     "actual_blocks": 4,
-    "predicted_mu": 6.006,
-    "predicted_sigma": 3.65,
+    "predicted_mu": 5.95,
+    "predicted_sigma": 3.616,
     "wait_time": 0.0
   },
   {
@@ -2899,8 +2899,8 @@
     "request_id": 363,
     "arrival_time": 349.479,
     "actual_blocks": 28,
-    "predicted_mu": 33.569,
-    "predicted_sigma": 21.935,
+    "predicted_mu": 31.954,
+    "predicted_sigma": 20.88,
     "wait_time": 0.0
   },
   {
@@ -2995,8 +2995,8 @@
     "request_id": 375,
     "arrival_time": 362.302,
     "actual_blocks": 9,
-    "predicted_mu": 10.41,
-    "predicted_sigma": 6.813,
+    "predicted_mu": 9.86,
+    "predicted_sigma": 6.453,
     "wait_time": 0.0
   },
   {
@@ -3035,8 +3035,8 @@
     "request_id": 380,
     "arrival_time": 366.24,
     "actual_blocks": 20,
-    "predicted_mu": 4.554,
-    "predicted_sigma": 2.965,
+    "predicted_mu": 2.271,
+    "predicted_sigma": 1.479,
     "wait_time": 0.0
   },
   {
@@ -3059,8 +3059,8 @@
     "request_id": 383,
     "arrival_time": 371.281,
     "actual_blocks": 1,
-    "predicted_mu": 1.359,
-    "predicted_sigma": 0.846,
+    "predicted_mu": 1.332,
+    "predicted_sigma": 0.829,
     "wait_time": 0.0
   },
   {
@@ -3075,8 +3075,8 @@
     "request_id": 385,
     "arrival_time": 373.292,
     "actual_blocks": 4,
-    "predicted_mu": 4.589,
-    "predicted_sigma": 2.722,
+    "predicted_mu": 4.541,
+    "predicted_sigma": 2.694,
     "wait_time": 0.0
   },
   {
@@ -3139,8 +3139,8 @@
     "request_id": 393,
     "arrival_time": 383.883,
     "actual_blocks": 1,
-    "predicted_mu": 1.076,
-    "predicted_sigma": 0.742,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.689,
     "wait_time": 0.0
   },
   {
@@ -3291,16 +3291,16 @@
     "request_id": 412,
     "arrival_time": 397.342,
     "actual_blocks": 3,
-    "predicted_mu": 4.433,
-    "predicted_sigma": 2.908,
+    "predicted_mu": 4.307,
+    "predicted_sigma": 2.826,
     "wait_time": 0.0
   },
   {
     "request_id": 413,
     "arrival_time": 398.126,
     "actual_blocks": 9,
-    "predicted_mu": 10.227,
-    "predicted_sigma": 6.592,
+    "predicted_mu": 9.742,
+    "predicted_sigma": 6.279,
     "wait_time": 0.0
   },
   {
@@ -3315,7 +3315,7 @@
     "request_id": 415,
     "arrival_time": 403.254,
     "actual_blocks": 7,
-    "predicted_mu": 13.535,
+    "predicted_mu": 13.534,
     "predicted_sigma": 7.831,
     "wait_time": 0.0
   },
@@ -3355,8 +3355,8 @@
     "request_id": 420,
     "arrival_time": 405.846,
     "actual_blocks": 8,
-    "predicted_mu": 10.779,
-    "predicted_sigma": 6.717,
+    "predicted_mu": 10.555,
+    "predicted_sigma": 6.578,
     "wait_time": 0.0
   },
   {
@@ -3547,16 +3547,16 @@
     "request_id": 444,
     "arrival_time": 432.921,
     "actual_blocks": 6,
-    "predicted_mu": 10.231,
-    "predicted_sigma": 6.912,
+    "predicted_mu": 10.012,
+    "predicted_sigma": 6.764,
     "wait_time": 0.0
   },
   {
     "request_id": 445,
     "arrival_time": 435.431,
     "actual_blocks": 1,
-    "predicted_mu": 1.571,
-    "predicted_sigma": 0.964,
+    "predicted_mu": 1.556,
+    "predicted_sigma": 0.955,
     "wait_time": 0.0
   },
   {
@@ -3579,8 +3579,8 @@
     "request_id": 448,
     "arrival_time": 437.487,
     "actual_blocks": 14,
-    "predicted_mu": 9.898,
-    "predicted_sigma": 6.63,
+    "predicted_mu": 8.389,
+    "predicted_sigma": 5.62,
     "wait_time": 0.0
   },
   {
@@ -3603,8 +3603,8 @@
     "request_id": 451,
     "arrival_time": 439.142,
     "actual_blocks": 2,
-    "predicted_mu": 1.393,
-    "predicted_sigma": 0.855,
+    "predicted_mu": 1.31,
+    "predicted_sigma": 0.804,
     "wait_time": 0.0
   },
   {
@@ -3619,8 +3619,8 @@
     "request_id": 453,
     "arrival_time": 440.054,
     "actual_blocks": 4,
-    "predicted_mu": 3.682,
-    "predicted_sigma": 2.309,
+    "predicted_mu": 3.49,
+    "predicted_sigma": 2.188,
     "wait_time": 0.0
   },
   {
@@ -3747,8 +3747,8 @@
     "request_id": 469,
     "arrival_time": 454.855,
     "actual_blocks": 39,
-    "predicted_mu": 79.748,
-    "predicted_sigma": 54.768,
+    "predicted_mu": 79.26,
+    "predicted_sigma": 54.433,
     "wait_time": 0.0
   },
   {
@@ -3779,8 +3779,8 @@
     "request_id": 473,
     "arrival_time": 458.016,
     "actual_blocks": 4,
-    "predicted_mu": 4.391,
-    "predicted_sigma": 2.653,
+    "predicted_mu": 4.305,
+    "predicted_sigma": 2.601,
     "wait_time": 0.0
   },
   {
@@ -3811,8 +3811,8 @@
     "request_id": 477,
     "arrival_time": 461.63,
     "actual_blocks": 6,
-    "predicted_mu": 6.786,
-    "predicted_sigma": 4.554,
+    "predicted_mu": 6.321,
+    "predicted_sigma": 4.242,
     "wait_time": 0.0
   },
   {
@@ -3851,16 +3851,16 @@
     "request_id": 482,
     "arrival_time": 464.269,
     "actual_blocks": 4,
-    "predicted_mu": 2.045,
-    "predicted_sigma": 1.287,
+    "predicted_mu": 1.772,
+    "predicted_sigma": 1.115,
     "wait_time": 0.0
   },
   {
     "request_id": 483,
     "arrival_time": 464.907,
     "actual_blocks": 3,
-    "predicted_mu": 5.518,
-    "predicted_sigma": 3.647,
+    "predicted_mu": 5.456,
+    "predicted_sigma": 3.606,
     "wait_time": 0.0
   },
   {
@@ -3883,8 +3883,8 @@
     "request_id": 486,
     "arrival_time": 466.226,
     "actual_blocks": 4,
-    "predicted_mu": 2.718,
-    "predicted_sigma": 1.688,
+    "predicted_mu": 2.514,
+    "predicted_sigma": 1.561,
     "wait_time": 0.0
   },
   {
@@ -3947,8 +3947,8 @@
     "request_id": 494,
     "arrival_time": 477.393,
     "actual_blocks": 2,
-    "predicted_mu": 2.86,
-    "predicted_sigma": 1.718,
+    "predicted_mu": 2.836,
+    "predicted_sigma": 1.704,
     "wait_time": 0.0
   },
   {
@@ -4019,8 +4019,8 @@
     "request_id": 503,
     "arrival_time": 485.427,
     "actual_blocks": 4,
-    "predicted_mu": 7.046,
-    "predicted_sigma": 4.573,
+    "predicted_mu": 6.962,
+    "predicted_sigma": 4.518,
     "wait_time": 0.0
   },
   {
@@ -4067,8 +4067,8 @@
     "request_id": 509,
     "arrival_time": 489.57,
     "actual_blocks": 13,
-    "predicted_mu": 26.186,
-    "predicted_sigma": 15.661,
+    "predicted_mu": 26.181,
+    "predicted_sigma": 15.658,
     "wait_time": 0.0
   },
   {
@@ -4091,8 +4091,8 @@
     "request_id": 512,
     "arrival_time": 494.052,
     "actual_blocks": 6,
-    "predicted_mu": 11.299,
-    "predicted_sigma": 6.869,
+    "predicted_mu": 11.273,
+    "predicted_sigma": 6.853,
     "wait_time": 0.0
   },
   {
@@ -4107,8 +4107,8 @@
     "request_id": 514,
     "arrival_time": 495.007,
     "actual_blocks": 25,
-    "predicted_mu": 1.503,
-    "predicted_sigma": 0.981,
+    "predicted_mu": 1.0,
+    "predicted_sigma": 0.653,
     "wait_time": 0.0
   },
   {
@@ -4147,16 +4147,16 @@
     "request_id": 519,
     "arrival_time": 505.091,
     "actual_blocks": 26,
-    "predicted_mu": 44.446,
-    "predicted_sigma": 26.161,
+    "predicted_mu": 44.368,
+    "predicted_sigma": 26.115,
     "wait_time": 0.0
   },
   {
     "request_id": 520,
     "arrival_time": 507.062,
     "actual_blocks": 15,
-    "predicted_mu": 12.779,
-    "predicted_sigma": 8.511,
+    "predicted_mu": 11.387,
+    "predicted_sigma": 7.584,
     "wait_time": 0.0
   },
   {
@@ -4187,16 +4187,16 @@
     "request_id": 524,
     "arrival_time": 512.074,
     "actual_blocks": 41,
-    "predicted_mu": 19.69,
-    "predicted_sigma": 13.346,
+    "predicted_mu": 14.131,
+    "predicted_sigma": 9.578,
     "wait_time": 0.0
   },
   {
     "request_id": 525,
     "arrival_time": 512.908,
     "actual_blocks": 7,
-    "predicted_mu": 2.569,
-    "predicted_sigma": 1.759,
+    "predicted_mu": 1.486,
+    "predicted_sigma": 1.017,
     "wait_time": 0.0
   },
   {
@@ -4291,8 +4291,8 @@
     "request_id": 537,
     "arrival_time": 521.965,
     "actual_blocks": 3,
-    "predicted_mu": 1.92,
-    "predicted_sigma": 1.191,
+    "predicted_mu": 1.764,
+    "predicted_sigma": 1.095,
     "wait_time": 0.0
   },
   {
@@ -4331,24 +4331,24 @@
     "request_id": 542,
     "arrival_time": 525.294,
     "actual_blocks": 7,
-    "predicted_mu": 6.021,
-    "predicted_sigma": 3.667,
+    "predicted_mu": 5.799,
+    "predicted_sigma": 3.531,
     "wait_time": 0.0
   },
   {
     "request_id": 543,
     "arrival_time": 526.061,
     "actual_blocks": 14,
-    "predicted_mu": 14.038,
-    "predicted_sigma": 8.958,
+    "predicted_mu": 13.265,
+    "predicted_sigma": 8.465,
     "wait_time": 0.0
   },
   {
     "request_id": 544,
     "arrival_time": 526.143,
     "actual_blocks": 4,
-    "predicted_mu": 5.53,
-    "predicted_sigma": 3.321,
+    "predicted_mu": 5.478,
+    "predicted_sigma": 3.29,
     "wait_time": 0.0
   },
   {
@@ -4379,8 +4379,8 @@
     "request_id": 548,
     "arrival_time": 535.793,
     "actual_blocks": 2,
-    "predicted_mu": 2.529,
-    "predicted_sigma": 1.503,
+    "predicted_mu": 2.507,
+    "predicted_sigma": 1.49,
     "wait_time": 0.0
   },
   {
@@ -4443,8 +4443,8 @@
     "request_id": 556,
     "arrival_time": 543.217,
     "actual_blocks": 2,
-    "predicted_mu": 3.051,
-    "predicted_sigma": 1.866,
+    "predicted_mu": 3.021,
+    "predicted_sigma": 1.847,
     "wait_time": 0.0
   },
   {
@@ -4459,8 +4459,8 @@
     "request_id": 558,
     "arrival_time": 544.787,
     "actual_blocks": 2,
-    "predicted_mu": 3.008,
-    "predicted_sigma": 1.97,
+    "predicted_mu": 2.929,
+    "predicted_sigma": 1.918,
     "wait_time": 0.0
   },
   {
@@ -4483,8 +4483,8 @@
     "request_id": 561,
     "arrival_time": 546.023,
     "actual_blocks": 3,
-    "predicted_mu": 4.753,
-    "predicted_sigma": 3.062,
+    "predicted_mu": 4.666,
+    "predicted_sigma": 3.006,
     "wait_time": 0.0
   },
   {
@@ -4515,8 +4515,8 @@
     "request_id": 565,
     "arrival_time": 551.358,
     "actual_blocks": 9,
-    "predicted_mu": 12.574,
-    "predicted_sigma": 8.52,
+    "predicted_mu": 12.015,
+    "predicted_sigma": 8.142,
     "wait_time": 0.0
   },
   {
@@ -4579,8 +4579,8 @@
     "request_id": 573,
     "arrival_time": 558.109,
     "actual_blocks": 8,
-    "predicted_mu": 13.964,
-    "predicted_sigma": 8.677,
+    "predicted_mu": 13.866,
+    "predicted_sigma": 8.617,
     "wait_time": 0.0
   },
   {
@@ -4611,8 +4611,8 @@
     "request_id": 577,
     "arrival_time": 562.348,
     "actual_blocks": 2,
-    "predicted_mu": 1.958,
-    "predicted_sigma": 1.222,
+    "predicted_mu": 1.873,
+    "predicted_sigma": 1.169,
     "wait_time": 0.0
   },
   {
@@ -4659,8 +4659,8 @@
     "request_id": 583,
     "arrival_time": 570.34,
     "actual_blocks": 7,
-    "predicted_mu": 6.894,
-    "predicted_sigma": 4.026,
+    "predicted_mu": 6.852,
+    "predicted_sigma": 4.002,
     "wait_time": 0.0
   },
   {
@@ -4699,8 +4699,8 @@
     "request_id": 588,
     "arrival_time": 576.628,
     "actual_blocks": 5,
-    "predicted_mu": 3.07,
-    "predicted_sigma": 1.877,
+    "predicted_mu": 2.863,
+    "predicted_sigma": 1.75,
     "wait_time": 0.0
   },
   {
@@ -4835,8 +4835,8 @@
     "request_id": 605,
     "arrival_time": 597.549,
     "actual_blocks": 2,
-    "predicted_mu": 3.328,
-    "predicted_sigma": 2.076,
+    "predicted_mu": 3.296,
+    "predicted_sigma": 2.056,
     "wait_time": 0.0
   },
   {
@@ -4875,8 +4875,8 @@
     "request_id": 610,
     "arrival_time": 604.116,
     "actual_blocks": 13,
-    "predicted_mu": 15.098,
-    "predicted_sigma": 8.839,
+    "predicted_mu": 15.021,
+    "predicted_sigma": 8.794,
     "wait_time": 0.0
   },
   {
@@ -4915,8 +4915,8 @@
     "request_id": 615,
     "arrival_time": 608.525,
     "actual_blocks": 11,
-    "predicted_mu": 10.255,
-    "predicted_sigma": 6.425,
+    "predicted_mu": 9.736,
+    "predicted_sigma": 6.101,
     "wait_time": 0.0
   },
   {
@@ -4979,16 +4979,16 @@
     "request_id": 623,
     "arrival_time": 615.099,
     "actual_blocks": 3,
-    "predicted_mu": 4.355,
-    "predicted_sigma": 2.577,
+    "predicted_mu": 4.333,
+    "predicted_sigma": 2.565,
     "wait_time": 0.0
   },
   {
     "request_id": 624,
     "arrival_time": 615.213,
     "actual_blocks": 1,
-    "predicted_mu": 1.219,
-    "predicted_sigma": 0.753,
+    "predicted_mu": 1.19,
+    "predicted_sigma": 0.735,
     "wait_time": 0.0
   },
   {
@@ -5003,8 +5003,8 @@
     "request_id": 626,
     "arrival_time": 617.383,
     "actual_blocks": 4,
-    "predicted_mu": 7.208,
-    "predicted_sigma": 4.778,
+    "predicted_mu": 7.112,
+    "predicted_sigma": 4.715,
     "wait_time": 0.0
   },
   {
@@ -5123,16 +5123,16 @@
     "request_id": 641,
     "arrival_time": 634.701,
     "actual_blocks": 11,
-    "predicted_mu": 19.137,
-    "predicted_sigma": 12.11,
+    "predicted_mu": 18.957,
+    "predicted_sigma": 11.997,
     "wait_time": 0.0
   },
   {
     "request_id": 642,
     "arrival_time": 637.125,
     "actual_blocks": 12,
-    "predicted_mu": 13.146,
-    "predicted_sigma": 7.621,
+    "predicted_mu": 13.123,
+    "predicted_sigma": 7.608,
     "wait_time": 0.0
   },
   {
@@ -5203,8 +5203,8 @@
     "request_id": 651,
     "arrival_time": 642.737,
     "actual_blocks": 7,
-    "predicted_mu": 9.123,
-    "predicted_sigma": 5.918,
+    "predicted_mu": 8.789,
+    "predicted_sigma": 5.701,
     "wait_time": 0.0
   },
   {
@@ -5219,8 +5219,8 @@
     "request_id": 653,
     "arrival_time": 646.13,
     "actual_blocks": 10,
-    "predicted_mu": 9.099,
-    "predicted_sigma": 5.476,
+    "predicted_mu": 8.865,
+    "predicted_sigma": 5.335,
     "wait_time": 0.0
   },
   {
@@ -5251,8 +5251,8 @@
     "request_id": 657,
     "arrival_time": 651.207,
     "actual_blocks": 17,
-    "predicted_mu": 27.322,
-    "predicted_sigma": 18.169,
+    "predicted_mu": 26.669,
+    "predicted_sigma": 17.734,
     "wait_time": 0.0
   },
   {
@@ -5283,16 +5283,16 @@
     "request_id": 661,
     "arrival_time": 654.212,
     "actual_blocks": 8,
-    "predicted_mu": 9.392,
-    "predicted_sigma": 5.448,
+    "predicted_mu": 9.376,
+    "predicted_sigma": 5.439,
     "wait_time": 0.0
   },
   {
     "request_id": 662,
     "arrival_time": 655.418,
     "actual_blocks": 3,
-    "predicted_mu": 2.642,
-    "predicted_sigma": 1.544,
+    "predicted_mu": 2.621,
+    "predicted_sigma": 1.532,
     "wait_time": 0.0
   },
   {
@@ -5307,24 +5307,24 @@
     "request_id": 664,
     "arrival_time": 656.417,
     "actual_blocks": 13,
-    "predicted_mu": 4.061,
-    "predicted_sigma": 2.739,
+    "predicted_mu": 2.19,
+    "predicted_sigma": 1.477,
     "wait_time": 0.0
   },
   {
     "request_id": 665,
     "arrival_time": 657.548,
     "actual_blocks": 8,
-    "predicted_mu": 9.563,
-    "predicted_sigma": 6.402,
+    "predicted_mu": 8.993,
+    "predicted_sigma": 6.021,
     "wait_time": 0.0
   },
   {
     "request_id": 666,
     "arrival_time": 658.358,
     "actual_blocks": 6,
-    "predicted_mu": 3.944,
-    "predicted_sigma": 2.636,
+    "predicted_mu": 3.287,
+    "predicted_sigma": 2.197,
     "wait_time": 0.0
   },
   {
@@ -5403,8 +5403,8 @@
     "request_id": 676,
     "arrival_time": 667.035,
     "actual_blocks": 14,
-    "predicted_mu": 4.091,
-    "predicted_sigma": 2.567,
+    "predicted_mu": 3.043,
+    "predicted_sigma": 1.91,
     "wait_time": 0.0
   },
   {
@@ -5443,8 +5443,8 @@
     "request_id": 681,
     "arrival_time": 676.98,
     "actual_blocks": 4,
-    "predicted_mu": 6.705,
-    "predicted_sigma": 4.175,
+    "predicted_mu": 6.645,
+    "predicted_sigma": 4.137,
     "wait_time": 0.0
   },
   {
@@ -5507,8 +5507,8 @@
     "request_id": 689,
     "arrival_time": 692.53,
     "actual_blocks": 4,
-    "predicted_mu": 4.078,
-    "predicted_sigma": 2.576,
+    "predicted_mu": 3.885,
+    "predicted_sigma": 2.454,
     "wait_time": 0.0
   },
   {
@@ -5531,8 +5531,8 @@
     "request_id": 692,
     "arrival_time": 694.531,
     "actual_blocks": 1,
-    "predicted_mu": 1.476,
-    "predicted_sigma": 0.894,
+    "predicted_mu": 1.462,
+    "predicted_sigma": 0.885,
     "wait_time": 0.0
   },
   {
@@ -5579,8 +5579,8 @@
     "request_id": 698,
     "arrival_time": 701.53,
     "actual_blocks": 10,
-    "predicted_mu": 3.74,
-    "predicted_sigma": 2.281,
+    "predicted_mu": 3.279,
+    "predicted_sigma": 2.0,
     "wait_time": 0.0
   },
   {
@@ -5611,8 +5611,8 @@
     "request_id": 702,
     "arrival_time": 706.11,
     "actual_blocks": 5,
-    "predicted_mu": 5.101,
-    "predicted_sigma": 3.025,
+    "predicted_mu": 5.034,
+    "predicted_sigma": 2.985,
     "wait_time": 0.0
   },
   {
@@ -5635,16 +5635,16 @@
     "request_id": 705,
     "arrival_time": 708.552,
     "actual_blocks": 4,
-    "predicted_mu": 6.449,
-    "predicted_sigma": 3.879,
+    "predicted_mu": 6.413,
+    "predicted_sigma": 3.858,
     "wait_time": 0.0
   },
   {
     "request_id": 706,
     "arrival_time": 709.032,
     "actual_blocks": 8,
-    "predicted_mu": 11.199,
-    "predicted_sigma": 6.525,
+    "predicted_mu": 11.176,
+    "predicted_sigma": 6.512,
     "wait_time": 0.0
   },
   {
@@ -5691,8 +5691,8 @@
     "request_id": 712,
     "arrival_time": 713.624,
     "actual_blocks": 9,
-    "predicted_mu": 8.802,
-    "predicted_sigma": 5.219,
+    "predicted_mu": 8.676,
+    "predicted_sigma": 5.144,
     "wait_time": 0.0
   },
   {
@@ -5787,8 +5787,8 @@
     "request_id": 724,
     "arrival_time": 724.022,
     "actual_blocks": 13,
-    "predicted_mu": 7.803,
-    "predicted_sigma": 5.273,
+    "predicted_mu": 6.198,
+    "predicted_sigma": 4.189,
     "wait_time": 0.0
   },
   {
@@ -5803,8 +5803,8 @@
     "request_id": 726,
     "arrival_time": 725.03,
     "actual_blocks": 6,
-    "predicted_mu": 7.342,
-    "predicted_sigma": 4.972,
+    "predicted_mu": 6.889,
+    "predicted_sigma": 4.665,
     "wait_time": 0.0
   },
   {
@@ -5819,8 +5819,8 @@
     "request_id": 728,
     "arrival_time": 726.623,
     "actual_blocks": 2,
-    "predicted_mu": 2.236,
-    "predicted_sigma": 1.503,
+    "predicted_mu": 2.077,
+    "predicted_sigma": 1.396,
     "wait_time": 0.0
   },
   {
@@ -5835,8 +5835,8 @@
     "request_id": 730,
     "arrival_time": 728.353,
     "actual_blocks": 4,
-    "predicted_mu": 2.277,
-    "predicted_sigma": 1.466,
+    "predicted_mu": 1.939,
+    "predicted_sigma": 1.249,
     "wait_time": 0.0
   },
   {
@@ -5859,8 +5859,8 @@
     "request_id": 733,
     "arrival_time": 731.637,
     "actual_blocks": 9,
-    "predicted_mu": 9.802,
-    "predicted_sigma": 5.724,
+    "predicted_mu": 9.755,
+    "predicted_sigma": 5.696,
     "wait_time": 0.0
   },
   {
@@ -5875,8 +5875,8 @@
     "request_id": 735,
     "arrival_time": 733.954,
     "actual_blocks": 15,
-    "predicted_mu": 30.057,
-    "predicted_sigma": 20.607,
+    "predicted_mu": 29.82,
+    "predicted_sigma": 20.445,
     "wait_time": 0.0
   },
   {
@@ -5923,8 +5923,8 @@
     "request_id": 741,
     "arrival_time": 736.502,
     "actual_blocks": 7,
-    "predicted_mu": 4.078,
-    "predicted_sigma": 2.551,
+    "predicted_mu": 3.657,
+    "predicted_sigma": 2.288,
     "wait_time": 0.0
   },
   {
@@ -5947,8 +5947,8 @@
     "request_id": 744,
     "arrival_time": 740.213,
     "actual_blocks": 1,
-    "predicted_mu": 1.866,
-    "predicted_sigma": 1.289,
+    "predicted_mu": 1.836,
+    "predicted_sigma": 1.268,
     "wait_time": 0.0
   },
   {
@@ -6139,8 +6139,8 @@
     "request_id": 768,
     "arrival_time": 763.991,
     "actual_blocks": 1,
-    "predicted_mu": 1.718,
-    "predicted_sigma": 1.119,
+    "predicted_mu": 1.694,
+    "predicted_sigma": 1.103,
     "wait_time": 0.0
   },
   {
@@ -6203,8 +6203,8 @@
     "request_id": 776,
     "arrival_time": 774.55,
     "actual_blocks": 8,
-    "predicted_mu": 4.012,
-    "predicted_sigma": 2.35,
+    "predicted_mu": 3.925,
+    "predicted_sigma": 2.299,
     "wait_time": 0.0
   },
   {
@@ -6267,16 +6267,16 @@
     "request_id": 784,
     "arrival_time": 780.921,
     "actual_blocks": 85,
-    "predicted_mu": 116.771,
-    "predicted_sigma": 80.738,
+    "predicted_mu": 110.475,
+    "predicted_sigma": 76.385,
     "wait_time": 0.0
   },
   {
     "request_id": 785,
     "arrival_time": 780.983,
     "actual_blocks": 10,
-    "predicted_mu": 2.558,
-    "predicted_sigma": 1.526,
+    "predicted_mu": 2.268,
+    "predicted_sigma": 1.353,
     "wait_time": 0.0
   },
   {
@@ -6291,8 +6291,8 @@
     "request_id": 787,
     "arrival_time": 782.416,
     "actual_blocks": 3,
-    "predicted_mu": 3.085,
-    "predicted_sigma": 1.993,
+    "predicted_mu": 2.901,
+    "predicted_sigma": 1.874,
     "wait_time": 0.0
   },
   {
@@ -6307,8 +6307,8 @@
     "request_id": 789,
     "arrival_time": 783.419,
     "actual_blocks": 7,
-    "predicted_mu": 13.219,
-    "predicted_sigma": 8.129,
+    "predicted_mu": 13.18,
+    "predicted_sigma": 8.105,
     "wait_time": 0.0
   },
   {
@@ -6371,8 +6371,8 @@
     "request_id": 797,
     "arrival_time": 791.689,
     "actual_blocks": 5,
-    "predicted_mu": 2.238,
-    "predicted_sigma": 1.478,
+    "predicted_mu": 1.667,
+    "predicted_sigma": 1.102,
     "wait_time": 0.0
   },
   {
@@ -6443,8 +6443,8 @@
     "request_id": 806,
     "arrival_time": 803.931,
     "actual_blocks": 5,
-    "predicted_mu": 9.32,
-    "predicted_sigma": 5.448,
+    "predicted_mu": 9.315,
+    "predicted_sigma": 5.446,
     "wait_time": 0.0
   },
   {
@@ -6459,8 +6459,8 @@
     "request_id": 808,
     "arrival_time": 808.296,
     "actual_blocks": 6,
-    "predicted_mu": 3.975,
-    "predicted_sigma": 2.742,
+    "predicted_mu": 3.159,
+    "predicted_sigma": 2.179,
     "wait_time": 0.0
   },
   {
@@ -6515,8 +6515,8 @@
     "request_id": 815,
     "arrival_time": 815.756,
     "actual_blocks": 11,
-    "predicted_mu": 20.037,
-    "predicted_sigma": 12.659,
+    "predicted_mu": 19.902,
+    "predicted_sigma": 12.574,
     "wait_time": 0.0
   },
   {
@@ -6651,8 +6651,8 @@
     "request_id": 832,
     "arrival_time": 829.002,
     "actual_blocks": 1,
-    "predicted_mu": 1.113,
-    "predicted_sigma": 0.702,
+    "predicted_mu": 1.069,
+    "predicted_sigma": 0.675,
     "wait_time": 0.0
   },
   {
@@ -6683,16 +6683,16 @@
     "request_id": 836,
     "arrival_time": 830.614,
     "actual_blocks": 18,
-    "predicted_mu": 33.704,
-    "predicted_sigma": 21.462,
+    "predicted_mu": 33.501,
+    "predicted_sigma": 21.333,
     "wait_time": 0.0
   },
   {
     "request_id": 837,
     "arrival_time": 832.301,
     "actual_blocks": 2,
-    "predicted_mu": 2.782,
-    "predicted_sigma": 1.796,
+    "predicted_mu": 2.702,
+    "predicted_sigma": 1.743,
     "wait_time": 0.0
   },
   {
@@ -6739,8 +6739,8 @@
     "request_id": 843,
     "arrival_time": 841.412,
     "actual_blocks": 12,
-    "predicted_mu": 2.592,
-    "predicted_sigma": 1.532,
+    "predicted_mu": 2.343,
+    "predicted_sigma": 1.384,
     "wait_time": 0.0
   },
   {
@@ -6779,8 +6779,8 @@
     "request_id": 848,
     "arrival_time": 845.883,
     "actual_blocks": 2,
-    "predicted_mu": 3.32,
-    "predicted_sigma": 2.282,
+    "predicted_mu": 3.228,
+    "predicted_sigma": 2.219,
     "wait_time": 0.0
   },
   {
@@ -6915,8 +6915,8 @@
     "request_id": 865,
     "arrival_time": 860.994,
     "actual_blocks": 2,
-    "predicted_mu": 2.266,
-    "predicted_sigma": 1.418,
+    "predicted_mu": 2.189,
+    "predicted_sigma": 1.37,
     "wait_time": 0.0
   },
   {
@@ -6995,8 +6995,8 @@
     "request_id": 875,
     "arrival_time": 866.639,
     "actual_blocks": 12,
-    "predicted_mu": 12.709,
-    "predicted_sigma": 8.73,
+    "predicted_mu": 11.534,
+    "predicted_sigma": 7.922,
     "wait_time": 0.0
   },
   {
@@ -7027,8 +7027,8 @@
     "request_id": 879,
     "arrival_time": 877.984,
     "actual_blocks": 5,
-    "predicted_mu": 8.309,
-    "predicted_sigma": 5.174,
+    "predicted_mu": 8.231,
+    "predicted_sigma": 5.125,
     "wait_time": 0.0
   },
   {
@@ -7043,8 +7043,8 @@
     "request_id": 881,
     "arrival_time": 884.89,
     "actual_blocks": 2,
-    "predicted_mu": 1.251,
-    "predicted_sigma": 0.745,
+    "predicted_mu": 1.206,
+    "predicted_sigma": 0.719,
     "wait_time": 0.0
   },
   {
@@ -7075,8 +7075,8 @@
     "request_id": 885,
     "arrival_time": 890.331,
     "actual_blocks": 4,
-    "predicted_mu": 3.357,
-    "predicted_sigma": 1.991,
+    "predicted_mu": 3.293,
+    "predicted_sigma": 1.953,
     "wait_time": 0.0
   },
   {
@@ -7091,8 +7091,8 @@
     "request_id": 887,
     "arrival_time": 892.456,
     "actual_blocks": 1,
-    "predicted_mu": 1.811,
-    "predicted_sigma": 1.087,
+    "predicted_mu": 1.807,
+    "predicted_sigma": 1.085,
     "wait_time": 0.0
   },
   {
@@ -7131,8 +7131,8 @@
     "request_id": 892,
     "arrival_time": 896.654,
     "actual_blocks": 3,
-    "predicted_mu": 4.732,
-    "predicted_sigma": 2.808,
+    "predicted_mu": 4.713,
+    "predicted_sigma": 2.797,
     "wait_time": 0.0
   },
   {
@@ -7227,8 +7227,8 @@
     "request_id": 904,
     "arrival_time": 905.843,
     "actual_blocks": 6,
-    "predicted_mu": 8.682,
-    "predicted_sigma": 5.358,
+    "predicted_mu": 8.557,
+    "predicted_sigma": 5.281,
     "wait_time": 0.0
   },
   {
@@ -7243,8 +7243,8 @@
     "request_id": 906,
     "arrival_time": 907.563,
     "actual_blocks": 4,
-    "predicted_mu": 7.542,
-    "predicted_sigma": 4.574,
+    "predicted_mu": 7.526,
+    "predicted_sigma": 4.564,
     "wait_time": 0.0
   },
   {
@@ -7283,8 +7283,8 @@
     "request_id": 911,
     "arrival_time": 911.765,
     "actual_blocks": 1,
-    "predicted_mu": 1.084,
-    "predicted_sigma": 0.647,
+    "predicted_mu": 1.068,
+    "predicted_sigma": 0.637,
     "wait_time": 0.0
   },
   {
@@ -7355,8 +7355,8 @@
     "request_id": 920,
     "arrival_time": 915.508,
     "actual_blocks": 2,
-    "predicted_mu": 1.298,
-    "predicted_sigma": 0.847,
+    "predicted_mu": 1.116,
+    "predicted_sigma": 0.729,
     "wait_time": 0.0
   },
   {
@@ -7427,8 +7427,8 @@
     "request_id": 929,
     "arrival_time": 929.929,
     "actual_blocks": 3,
-    "predicted_mu": 3.683,
-    "predicted_sigma": 2.193,
+    "predicted_mu": 3.646,
+    "predicted_sigma": 2.171,
     "wait_time": 0.0
   },
   {
@@ -7467,8 +7467,8 @@
     "request_id": 934,
     "arrival_time": 936.193,
     "actual_blocks": 1,
-    "predicted_mu": 2.151,
-    "predicted_sigma": 1.474,
+    "predicted_mu": 2.148,
+    "predicted_sigma": 1.472,
     "wait_time": 0.0
   },
   {
@@ -7499,8 +7499,8 @@
     "request_id": 938,
     "arrival_time": 939.03,
     "actual_blocks": 8,
-    "predicted_mu": 13.847,
-    "predicted_sigma": 9.342,
+    "predicted_mu": 13.575,
+    "predicted_sigma": 9.158,
     "wait_time": 0.0
   },
   {
@@ -7555,8 +7555,8 @@
     "request_id": 945,
     "arrival_time": 946.848,
     "actual_blocks": 1,
-    "predicted_mu": 1.691,
-    "predicted_sigma": 1.166,
+    "predicted_mu": 1.646,
+    "predicted_sigma": 1.136,
     "wait_time": 0.0
   },
   {
@@ -7579,8 +7579,8 @@
     "request_id": 948,
     "arrival_time": 948.052,
     "actual_blocks": 1,
-    "predicted_mu": 1.066,
-    "predicted_sigma": 0.617,
+    "predicted_mu": 1.065,
+    "predicted_sigma": 0.616,
     "wait_time": 0.0
   },
   {
@@ -7643,32 +7643,32 @@
     "request_id": 956,
     "arrival_time": 952.592,
     "actual_blocks": 22,
-    "predicted_mu": 30.327,
-    "predicted_sigma": 20.318,
+    "predicted_mu": 29.05,
+    "predicted_sigma": 19.462,
     "wait_time": 0.0
   },
   {
     "request_id": 957,
     "arrival_time": 953.823,
     "actual_blocks": 1,
-    "predicted_mu": 1.2,
-    "predicted_sigma": 0.776,
+    "predicted_mu": 1.148,
+    "predicted_sigma": 0.742,
     "wait_time": 0.0
   },
   {
     "request_id": 958,
     "arrival_time": 957.239,
     "actual_blocks": 2,
-    "predicted_mu": 2.745,
-    "predicted_sigma": 1.821,
+    "predicted_mu": 2.638,
+    "predicted_sigma": 1.75,
     "wait_time": 0.0
   },
   {
     "request_id": 959,
     "arrival_time": 959.799,
     "actual_blocks": 2,
-    "predicted_mu": 3.268,
-    "predicted_sigma": 2.119,
+    "predicted_mu": 3.212,
+    "predicted_sigma": 2.082,
     "wait_time": 0.0
   },
   {
@@ -7835,16 +7835,16 @@
     "request_id": 980,
     "arrival_time": 979.035,
     "actual_blocks": 11,
-    "predicted_mu": 22.14,
-    "predicted_sigma": 13.412,
+    "predicted_mu": 22.13,
+    "predicted_sigma": 13.406,
     "wait_time": 0.0
   },
   {
     "request_id": 981,
     "arrival_time": 980.17,
     "actual_blocks": 5,
-    "predicted_mu": 8.205,
-    "predicted_sigma": 5.065,
+    "predicted_mu": 8.134,
+    "predicted_sigma": 5.021,
     "wait_time": 0.0
   },
   {
@@ -7891,16 +7891,16 @@
     "request_id": 987,
     "arrival_time": 983.759,
     "actual_blocks": 4,
-    "predicted_mu": 5.252,
-    "predicted_sigma": 3.488,
+    "predicted_mu": 5.017,
+    "predicted_sigma": 3.333,
     "wait_time": 0.0
   },
   {
     "request_id": 988,
     "arrival_time": 983.797,
     "actual_blocks": 1,
-    "predicted_mu": 1.355,
-    "predicted_sigma": 0.908,
+    "predicted_mu": 1.295,
+    "predicted_sigma": 0.868,
     "wait_time": 0.0
   },
   {
@@ -7923,8 +7923,8 @@
     "request_id": 991,
     "arrival_time": 986.849,
     "actual_blocks": 2,
-    "predicted_mu": 2.792,
-    "predicted_sigma": 1.672,
+    "predicted_mu": 2.769,
+    "predicted_sigma": 1.658,
     "wait_time": 0.0
   },
   {
