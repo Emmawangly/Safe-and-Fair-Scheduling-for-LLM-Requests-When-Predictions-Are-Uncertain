@@ -36,9 +36,21 @@ def create_request(
 ):
     actual_blocks = sample_actual_blocks(rng, block_profile)
     error_fraction = error_rate_percent / 100
-    noise_factor = rng.uniform(1 - error_fraction, 1 + error_fraction)
+
+# Each request has its own prediction difficulty.
+    reliability_factor = rng.uniform(0.5, 1.5)
+    effective_error = error_fraction * reliability_factor
+
+    noise_factor = rng.uniform(
+    max(0.0, 1.0 - effective_error),
+    1.0 + effective_error,
+)
+
     predicted_mu = max(1.0, actual_blocks * noise_factor)
-    predicted_sigma = actual_blocks * error_fraction / math.sqrt(3)
+
+# Uncertainty is derived from the reported prediction rather than
+# directly from the hidden true request size.
+    predicted_sigma = predicted_mu * effective_error / math.sqrt(3)
 
     request = {
         "request_id": request_id,
