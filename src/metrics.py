@@ -15,26 +15,30 @@ def compute_metrics(records, error_pct):
         )
 
     df = pd.DataFrame(records)
-    jct = (df["completion_time"] - df["arrival_time"]).values
 
-    avg_jct = float(jct.mean())
-    avg_ttft = float(df["ttft"].mean())
+    if "timed_out" in df.columns:
+        timed_out_pct = float(df["timed_out"].mean() * 100)
+        completed = df[~df["timed_out"]]
+    else:
+        timed_out_pct = 0.0
+        completed = df
+
+    # jct fixed with only requests that actually finishe
+
+    jct = (completed["completion_time"] - completed["arrival_time"]).values
     n = len(jct)
+
+    avg_jct = float(jct.mean()) if n > 0 else float("nan")
+    avg_ttft = float(completed["ttft"].mean()) if n > 0 else float("nan")
 
     sum_x = jct.sum()
     sum_x2 = (jct ** 2).sum()
 
     jain = float((sum_x ** 2) / (n * sum_x2)) if sum_x2 > 0 else 1.0
-    starved = float((jct > 3.0 * avg_jct).mean() * 100)
+    starved = float((jct > 3.0 * avg_jct).mean() * 100) if n > 0 else 0.0
 
-    if "timed_out" in df.columns:
-        timed_out_pct = float(df["timed_out"].mean() * 100)
-    else:
-        timed_out_pct = 0.0
-
-    # tail latency
-    p95 = float(np.percentile(jct, 95))
-    p99 = float(np.percentile(jct, 99))
+    p95 = float(np.percentile(jct, 95)) if n > 0 else float("nan")
+    p99 = float(np.percentile(jct, 99)) if n > 0 else float("nan")
 
     return {
         "error_pct": error_pct,
@@ -70,11 +74,12 @@ if __name__ == "__main__":
     for k, v in result.items():
         print(f"  {k}: {v}")
 
-    expected_jct = round((2.5 + 3.5 + 5.0 + 2.0 + 13.0) / 5, 4)
+    # jct now only averages the 4 requests that actually finished
+    expected_jct = round((2.5 + 3.5 + 5.0 + 2.0) / 4, 4)
     assert result["jct"] == expected_jct
     print(f"\n  ✓ JCT ({result['jct']}s)")
 
-    expected_ttft = round((0.0 + 1.5 + 2.0 + 0.5 + 4.0) / 5, 4)
+    expected_ttft = round((0.0 + 1.5 + 2.0 + 0.5) / 4, 4)
     assert result["ttft"] == expected_ttft
     print(f"  ✓ TTFT ({result['ttft']}s)")
 
@@ -117,4 +122,4 @@ if __name__ == "__main__":
     assert "alpha" in batch and "jct_p95" in batch
     print("  ✓ compute_metrics_batch ok")
 
-    print("\nall tests passed.")
+    print("\n✓ all tests passed ✓")

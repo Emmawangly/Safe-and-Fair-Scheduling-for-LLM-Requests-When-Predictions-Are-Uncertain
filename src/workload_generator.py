@@ -36,9 +36,11 @@ def create_request(
 ):
     actual_blocks = sample_actual_blocks(rng, block_profile)
     error_fraction = error_rate_percent / 100
-    noise_factor = rng.uniform(1 - error_fraction, 1 + error_fraction)
+    reliability = rng.uniform(0.5, 1.5)  # some requests are just harder to predict than others
+    request_error = error_fraction * reliability
+    noise_factor = rng.uniform(1 - request_error, 1 + request_error)
     predicted_mu = max(1.0, actual_blocks * noise_factor)
-    predicted_sigma = actual_blocks * error_fraction / math.sqrt(3)
+    predicted_sigma = predicted_mu * request_error / math.sqrt(3)
 
     request = {
         "request_id": request_id,
@@ -68,12 +70,12 @@ def generate_workload(
         current_time += interarrival_time
 
         request = create_request(
-    request_id,
-    rng,
-    current_time,
-    error_rate_percent,
-    block_profile,
-)
+            request_id,
+            rng,
+            current_time,
+            error_rate_percent,
+            block_profile,
+        )
         queue.append(request)
 
     return queue

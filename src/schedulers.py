@@ -34,20 +34,22 @@ def robust_scheduler(queue, alpha, beta):
     best_score = float("-inf")
 
     for idx, req in enumerate(queue):
-        # Prevent invalid negative prediction values
+       
+       
         mu = max(req.predicted_mu, 0.0)
         sigma = max(req.predicted_sigma, 0.0)
-        T_wait = max(req.wait_time, 0.0)
+        wait_time = max(req.wait_time, 0.0)
 
         denom = max(mu + alpha * sigma, 1e-6)
-        term1 = 1.0 / denom
+        size_term = avg_wait / denom  
+        
 
-        aging = beta * (T_wait / avg_wait)
+        aging_term = beta * (wait_time / avg_wait)
 
-        score = term1 + aging
+        score = size_term + aging_term
 
         if score > best_score:
             best_score = score
             best_index = idx
 
-    return best_index    
+    return best_index
