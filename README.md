@@ -8,8 +8,11 @@ A Python discrete-event simulator created to compare LLM request scheduling poli
 ## Schedulers that were compared in the studies
 
 **FCFS** —> first-come-first-served. Our baseline 
+
 **LTR** —> learning-to-rank. Our starting point in the extension research
+
 **LJF** —> longest-job-first. This was used mainly to have a parameter of the worst case scenario
+
 **Robust** —> our scheduler! It combines a prediction-uncertainty penalty with an aging term:
 
 ```text
