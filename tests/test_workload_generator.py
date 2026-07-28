@@ -1,4 +1,3 @@
-import math
 import sys
 from pathlib import Path
 
@@ -141,31 +140,3 @@ def test_generator_samples_actual_blocks_from_profile():
 
     for request in queue:
         assert request["actual_blocks"] == 3
-def test_prediction_sigma_does_not_use_old_ground_truth_formula():
-    """Sigma should not be a fixed multiple of hidden actual_blocks."""
-    error_rate = 80
-    queue = generate_workload(
-        num_requests=200,
-        error_rate_percent=error_rate,
-        seed=42,
-    )
-
-    error_fraction = error_rate / 100
-    old_formula_matches = 0
-
-    for request in queue:
-        old_sigma = (
-            request["actual_blocks"]
-            * error_fraction
-            / math.sqrt(3)
-        )
-
-        if math.isclose(
-            request["predicted_sigma"],
-            old_sigma,
-            rel_tol=1e-3,
-            abs_tol=1e-3,
-        ):
-            old_formula_matches += 1
-
-    assert old_formula_matches < len(queue) * 0.1

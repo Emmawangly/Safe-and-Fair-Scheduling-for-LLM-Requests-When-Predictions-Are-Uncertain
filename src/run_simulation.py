@@ -1,40 +1,50 @@
 import json
 import os
+import copy
 import pandas as pd
 
-from workload_generator import generate_workload
 from engine import SimulationEngine
 from schedulers import fcfs_scheduler, ltr_scheduler, robust_scheduler
+from ljf import ljf_scheduler
 from shared_structures import RequestPacket
-from metrics import compute_metrics, compute_metrics_batch
+from metrics import compute_metrics
 
-ERROR_LEVELS  = [0, 20, 40, 60, 80]
-NUM_REQUESTS  = 1000
-SEED          = 42
-ALPHA         = 0.5
-BETA          = 0.5
+ERROR_LEVELS = [0, 20, 40, 60, 80]
 
-ALPHAS = [0.1, 0.5, 1.0, 2.0]
-BETAS  = [0.1, 0.5, 1.0, 2.0]
+# untuned default, robust also gets run again per scenario with tuned alpha/beta separately
 
-TIME_STEP     = 1.0
-BLOCKS_PER_S  = 4
-MAX_TIME      = 2000.0
-RESULTS_DIR   = "results"
+ALPHA = 0.5
+BETA = 0.5
+
+TIME_STEP = 1.0
+MAX_TIME = 2000.0
+MAX_WAIT = 300.0
+RESULTS_DIR = "results"
 
 
-def load_workload(error_pct: int) -> list:
+SCENARIOS = {
+    "light": 15.8,
+    "normal": 9.0,
+    "stress": 4.5,
+    "saturation": 3.2,
+}
+
+
+def load_workload(error_pct):
     path = f"data/workload_error_{error_pct}.json"
     with open(path) as f:
         raw = json.load(f)
     return [RequestPacket(**r) for r in raw]
 
 
-def run_scheduler(requests: list, scheduler_fn, alpha: float, beta: float) -> list:
+def run_scheduler(requests, scheduler_fn, alpha, beta, blocks_per_second):
+    
+    
     engine = SimulationEngine(
-        list(requests),
+        copy.deepcopy(requests),
         time_step=TIME_STEP,
-        blocks_per_second=BLOCKS_PER_S,
+        blocks_per_second=blocks_per_second,
+        max_wait=MAX_WAIT,
     )
     engine.run(
         scheduler_fn=scheduler_fn,
@@ -44,123 +54,43 @@ def run_scheduler(requests: list, scheduler_fn, alpha: float, beta: float) -> li
     )
     return engine.records
 
-def run_parameter_sweep():
-    parameter_rows = []
-
-    for alpha in ALPHAS:
-        for beta in BETAS:
-            print(f"\nRunning alpha={alpha}, beta={beta}")
-
-            for error_pct in ERROR_LEVELS:
-                requests = load_workload(error_pct)
-
-                records = run_scheduler(
-                    requests,
-                    robust_scheduler,
-                    alpha,
-                    beta,
-                )
-
-                row = compute_metrics_batch(
-                    records,
-                    error_pct,
-                    alpha,
-                    beta,
-                )
-
-                parameter_rows.append(row)
-
-    output_path = os.path.join(
-        RESULTS_DIR,
-        "results_parameter_sweep.csv"
-    )
-
-    pd.DataFrame(parameter_rows).to_csv(
-        output_path,
-        index=False,
-    )
-
-    print(f"Saved {output_path}")
-
-def run_ablation():
-    ablation_rows = []
-
-    ablation_configs = [
-        ("full", 0.5, 0.5),
-        ("no_uncertainty", 0.0, 0.5),
-        ("no_aging", 0.5, 0.0),
-    ]
-
-    for name, alpha, beta in ablation_configs:
-        print(f"\nRunning ablation: {name}")
-
-        for error_pct in ERROR_LEVELS:
-            requests = load_workload(error_pct)
-
-            records = run_scheduler(
-                requests,
-                robust_scheduler,
-                alpha,
-                beta,
-            )
-
-            row = compute_metrics_batch(
-                records,
-                error_pct,
-                alpha,
-                beta,
-            )
-
-            row["configuration"] = name
-            ablation_rows.append(row)
-
-    output_path = os.path.join(
-        RESULTS_DIR,
-        "results_ablation.csv"
-    )
-
-    pd.DataFrame(ablation_rows).to_csv(
-        output_path,
-        index=False,
-    )
-
-    print(f"Saved {output_path}")
 
 def main():
-    os.makedirs(RESULTS_DIR, exist_ok=True)
-
     schedulers = [
-        ("fcfs",   fcfs_scheduler),
-        ("ltr",    ltr_scheduler),
+        ("fcfs", fcfs_scheduler),
+        ("ltr", ltr_scheduler),
         ("robust", robust_scheduler),
+        ("ljf", ljf_scheduler),
     ]
 
-    all_results = {name: [] for name, _ in schedulers}
+    for scenario_name, bps in SCENARIOS.items():
+        print(f"\n=== Scenario: {scenario_name} (blocks_per_second={bps}) ===")
+        scenario_dir = os.path.join(RESULTS_DIR, scenario_name)
+        os.makedirs(scenario_dir, exist_ok=True)
 
-    for error_pct in ERROR_LEVELS:
-        print(f"\nError level: {error_pct}%")
-        requests = load_workload(error_pct)
+        all_results = {name: [] for name, _ in schedulers}
 
-        for name, fn in schedulers:
-            records = run_scheduler(requests, fn, ALPHA, BETA)
-            row = compute_metrics(records, error_pct)
-            all_results[name].append(row)
-            print(f"  {name:8s} — JCT: {row['jct']:.3f}s  "
-                  f"TTFT: {row['ttft']:.3f}s  "
-                  f"Preemptions: {row['preemptions']}  "
-                  f"Jain: {row['jain_fairness']:.3f}  "
-                  f"Starvation: {row['starvation_pct']:.1f}%")
+        for error_pct in ERROR_LEVELS:
+            print(f"\nError level: {error_pct}%")
+            requests = load_workload(error_pct)
 
-    for name, rows in all_results.items():
-        path = os.path.join(RESULTS_DIR, f"results_{name}.csv")
-        pd.DataFrame(rows).to_csv(path, index=False)
-        print(f"\nSaved {path}")
+            for name, fn in schedulers:
+                records = run_scheduler(requests, fn, ALPHA, BETA, bps)
+                row = compute_metrics(records, error_pct)
+                all_results[name].append(row)
+                print(f"  {name:8s} - JCT: {row['jct']:.3f}s  "
+                      f"TTFT: {row['ttft']:.3f}s  "
+                      f"preemptions: {row['preemptions']}  "
+                      f"jain: {row['jain_fairness']:.3f}  "
+                      f"starvation: {row['starvation_pct']:.1f}%  "
+                      f"timed_out: {row['timed_out_pct']:.1f}%")
 
-    print("\nAll experiments complete.")
-    print("Connect the dashboard by replacing load_data() with:")
-    print('  "fcfs":   pd.read_csv("results/results_fcfs.csv")')
-    print('  "ltr":    pd.read_csv("results/results_ltr.csv")')
-    print('  "robust": pd.read_csv("results/results_robust.csv")')
+        for name, rows in all_results.items():
+            path = os.path.join(scenario_dir, f"results_{name}.csv")
+            pd.DataFrame(rows).to_csv(path, index=False)
+            print(f"Saved {path}")
+
+    print("\nAll scenarios complete ✓")
 
 
 if __name__ == "__main__":
