@@ -1,0 +1,67 @@
+Testing whether a scheduling formula actually balances speed and fairness requires running it against real traffic. We built a discrete-event simulator to test that question directly, comparing four scheduling policies under conditions we could fully control.
+
+\subsection{Simulator and Scheduler Design}
+
+Instead of running in real time, our simulator uses a virtual clock that advances step by step and updates the system state at each event, following a methodology similar to that used by inference simulators for language models such as Vidur~\cite{agrawal2024vidur}. This approach makes it possible to test different scheduling policies in a controlled way and repeat experiments under the same conditions, without results being affected by the unpredictable behavior of a real system.
+
+To simplify the study, the simulator processes only one request at a time and does not use concurrent processing or batching. This design choice makes it easier to analyze how each scheduling policy affects metrics such as latency, starvation, timeouts, and preemptions, without other factors interfering with the results.
+
+All component of the simulator use the same data structure, called \texttt{RequestPacket}, which stores information such as the request identifier (\texttt{request\_id}), arrival time (\texttt{arrival\_time}), actual size (\texttt{actual\_blocks}), predicted size (\texttt{predicted\_mu}), prediction uncertainty (\texttt{predicted\_sigma}), waiting time (\texttt{wait\_time}), number of preemptions (\texttt{preemptions}) and whether the request is timed out (\texttt{timed\_out}). This ensures that all stages of the simulator work with the same information for each request.
+
+Four scheduling policies were compared. FCFS (First-Come, First-Served) always serves the request that arrived first (\texttt{arrival\_time}), so it serves as a simple baseline for comparing the other methods.
+
+LTR (Least Tokens Remaining) gives priority to the request with the smallest predicted size (\texttt{predicted\_mu})~\cite{fu2024ltr}. This strategy follows the idea from previous work, where the predicted output length is used to approximate a Shortest Job First policy in language model inference.
+
+LJF (Longest Job First) does the opposite: it selects the request with the largest predicted size. It was included as a comparison case because it usually produces worse results and helps verify that the metrics correctly identify inefficient scheduling policies.
+
+Finally, the Robust scheduler combines two factors to decide which request to execute. For each waiting request, it assigns the following score:
+\[
+S_i = \frac{\bar{T}}{\mu_i + \alpha \sigma_i} + \beta \frac{T_i}{\bar{T}}
+\]
+where $\mu_i$ is the predicted size of the request, $\sigma_i$ represents the uncertainty of that prediction, $T_i$ is the amount of time the request has been waiting, and $\bar{T}$ is the average waiting time of all requests in the queue. The average waiting time $\bar{T}$ appears in both terms on purpose. Because without it, the two terms of the formula would be with different numeric scales, and the aging term would dominate the score almost independently of $\alpha$. Multiplying the first term by $\bar{T}$ brings both terms onto a comparable scale, so $\alpha$ and $\beta$ both have a real effect on the final score.
+
+The first term gives priority to smaller requests~\cite{kwon2023pagedattention, park2024prefix}, but reduces that priority when the prediction is unreliable. The second term increases the priority of requests that have been waiting longer~\cite{hansen1973os}, which helps prevent some requests from remaining indefinitely in the queue (starvation).
+
+It is important to note that none of the schedulers uses \texttt{actual\_blocks} to make decisions. They work only with the information available before execution: the predicted size (\texttt{predicted\_mu}), the uncertainty (\texttt{predicted\_sigma}), and the waiting time (\texttt{wait\_time}). In this way, the comparison between policies is fair, since none of them knows the true size of the request before processing it.
+
+\subsection{. Metrics, Parameter Search, and Experimental Setup}
+
+We track five metrics for every simulator run: job completion time, time to first token, Jain's fairness index, starvation rate, and tail latency at the 95th and 99th percentiles. All five only consider requests that actually finish. A request that waits past 300 seconds gets cancelled (simulating an user that did not wanted to wait more than 5 minutes for the answer), which we count separately as a timeout rate instead of folding it into the average completion time. This separation was done on purpose, because without this split, a scheduler that simply drops the hardest requests ends up looking fast, since its average would only reflect the easy tasks it completed.
+
+For the implementation of these measurements, we built the entire simulator in Python. We used pandas and numpy for data analysis, matplotlib for plots, and a custom Streamlit dashboard for interactive evaluation. Instead of using only the synthetic data, our workload generator can also pull request sizes directly from a real dataset, using the length profiles from LMSYS-Chat-1M where the average input is 85 tokens and the average output is 157 tokens [3].
+Based on this setup, we selected specific values for alpha and beta through a grid search across 9 alpha values and 18 beta values, evaluating them at 5 prediction error levels and across 4 load scenarios, totaling 3,240 simulation runs. The beta range goes much wider than the alpha's, up to 30, because keeping starvation near zero only happens at beta values far higher than a narrower range would have covered; Section~\ref{sec:evaluation} walks through how we found that range. To pick the final parameters, we selected the setting with the lowest average completion time among those that kept starvation under 2 percent across all five error levels at once, rather than picking a setting that worked well in only one scenario. Table~\ref{tab:tuned_params} lists the chosen parameters for each case.
+
+To see how the schedulers handle in different stress levels, we ran tests across four created scenarios, that simulate a range from a internal tool used by private users or companies to a server that is pushed past its limits. We controlled the load by tuning the server processing speed while keeping the request arrivals fixed. Reusing the exact same 1,000 requests in every test ensured that changes in performance were driven purely by load, not by a new draw of requests. The four scenarios and their target utilization are summarized in Table~\ref{tab:scenarios}
+
+\begin{table}[h]
+\centering
+\caption{Load scenario definitions}
+\label{tab:scenarios}
+\begin{tabular}{@{}lccl@{}}
+\toprule
+Scenario & Blocks/s & Utilization & Context \\
+\midrule
+Light      & 15.8 & $\approx$43\%  & Corporate internal tool \\
+Normal     & 9.0  & $\approx$76\%  & Commercial production \\
+Stress     & 4.5  & $\approx$153\% & Traffic spike \\
+Saturation & 3.2  & $\approx$214\% & Capacity limit \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Final tuned parameters per scenario}
+\label{tab:tuned_params}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Scenario & $\alpha$ & $\beta$ & Avg JCT & Worst-case & Adv. over \\
+ & & & (s) & starvation & FCFS \\
+\midrule
+Light            & 0.25 & 18.0 & 76.72  & 2.00\% & 9.7\%  \\
+Normal (primary) & 0.25 & 18.0 & 101.26 & 0.64\% & 42.7\% \\
+Stress           & 0.25 & 18.0 & 102.27 & 1.25\% & 55.9\% \\
+Saturation       & 0.50 & 18.0 & 102.44 & 1.66\% & 58.1\% \\
+\bottomrule
+\end{tabular}
+\end{table}

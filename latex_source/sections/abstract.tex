@@ -1,0 +1,7 @@
+\begin{abstract}
+
+Large language model (LLM) serving systems need to schedule the requests before output length and key-value (KV) cache requirement of each request is known. This makes the scheduling very challenging. First-come-first-served (FCFS) does not consider size of the request, so it can lead to head-of-line blocking. Learning-to-rank (LTR) try to solve this problem by ranking the requests according to predicted output length, but its performance depend on how well the predictor can generalize to workload that not seen before. In this paper, we propose a robust scheduler that combine predicted request size, prediction uncertainty and waiting time into single priority score. We evaluate the scheduler with discrete-event simulator, under four load level and five prediction-error level.
+
+Under Normal workload, the tuned scheduler reduce mean job completion time (JCT) by 42.7\% compared with FCFS, while keeping the starvation close to zero. The scheduler is also more stable in out-of-distribution (OOD) experiments. Mean JCT of LTR increase about 119\%, while our scheduler show almost no degradation. Our evaluation is based on simplified single-instance serial simulator, and the scheduler parameters still need to be tuned separately for each load level.
+
+\end{abstract}

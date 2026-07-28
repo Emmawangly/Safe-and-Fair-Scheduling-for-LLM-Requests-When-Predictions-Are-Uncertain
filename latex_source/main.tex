@@ -1,0 +1,90 @@
+\documentclass[conference]{IEEEtran}
+
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Safe and Fair Scheduling for LLM Requests When Predictions Are Uncertain}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Authors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{
+
+\IEEEauthorblockN{
+Chang Liu,
+Juan Garcia Habeych,
+Liyang Wang,
+Loriynne de Souza Duarte
+}
+
+\IEEEauthorblockA{
+Fairleigh Dickinson University\\
+Vancouver, British Columbia, Canada
+}
+
+}
+
+\maketitle
+
+\input{sections/abstract}
+
+\section{INTRODUCTION}
+\input{sections/introduction}
+
+\section{BACKGROUND}
+\input{sections/background}
+
+\section{RELATED WORK}
+\input{sections/relatedwork}
+
+\section{METHODOLOGY}
+\input{sections/methodology}
+
+\section{EVALUATION}
+\input{sections/evaluation}
+
+\section{DISCUSSION}
+\input{sections/discussion}
+
+\section{CONCLUSION}
+\input{sections/conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\nocite{*}
+
+\bibliographystyle{IEEEtran}
+\bibliography{REFERENCES}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\appendix
+
+\section*{Appendix A}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/github_repo.png}
+    \caption{Screenshot of the GitHub project repository.}
+\end{figure}
+
+\end{document}
